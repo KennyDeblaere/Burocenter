@@ -9,6 +9,9 @@ using System.Text;
 using System.IO;
 using UIKit;
 using Foundation;
+using XLabs.Forms.Controls;
+
+
 
 [assembly: Dependency(typeof(CorflowMobile.iOS.SHA1Service))]
 [assembly: Dependency(typeof(CorflowMobile.Data.BaseSyncService))]

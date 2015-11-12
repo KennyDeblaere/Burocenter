@@ -192,6 +192,7 @@
     <BundleResource Include="Resources\settings.png" />
     <BundleResource Include="Resources\Unresolved.png" />
     <BundleResource Include="Resources\stop.png" />
+    <BundleResource Include="Resources\history2.png" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="Resources\LaunchScreen.storyboard" />

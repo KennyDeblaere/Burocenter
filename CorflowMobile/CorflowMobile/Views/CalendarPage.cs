@@ -16,7 +16,7 @@ namespace CorflowMobile.Views
         {
             CalendarView calendarView = new CalendarView()
             {
-                //BackgroundColor = Color.Blue
+                BackgroundColor = Color.Blue,
                 MinDate = CalendarView.FirstDayOfMonth(DateTime.Now.AddYears(-1)),
                 MaxDate = CalendarView.LastDayOfMonth(DateTime.Now.AddYears(1)),
                 HighlightedDateBackgroundColor = Color.FromRgb(227, 227, 227),
@@ -25,8 +25,7 @@ namespace CorflowMobile.Views
                 TodayBackgroundStyle = CalendarView.BackgroundStyle.CircleOutline,
                 HighlightedDaysOfWeek = new DayOfWeek[] { DayOfWeek.Saturday, DayOfWeek.Sunday },
                 ShowNavigationArrows = true,
-                MonthTitleFont = Font.OfSize("Open 24 Display St", NamedSize.Medium)
-
+                MonthTitleFont = Font.OfSize("Open 24 Display St", NamedSize.Medium),
             };
 
             calendarView.DateSelected += (object sender, DateTime e) =>

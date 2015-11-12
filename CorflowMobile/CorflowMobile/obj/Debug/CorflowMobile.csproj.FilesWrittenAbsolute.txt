@@ -54,3 +54,10 @@
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Ioc.dll
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Platform.dll
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Serialization.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/CorflowMobile.dll.config
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/ExifLib.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Core.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Forms.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Ioc.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Platform.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/XLabs.Serialization.dll

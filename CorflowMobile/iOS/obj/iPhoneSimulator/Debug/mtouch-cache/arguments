@@ -1,10 +1,10 @@
 # Version: 9.1.0.31 (monotouch-9.1.0-branch: bae2cdb)
-# [first argument, ignore] # /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/iOS/mtouch.exe
+# [first argument, ignore] # /Users/alexandervandesteene/Burocenter/CorflowMobile/iOS/mtouch.exe
 /Library/Frameworks/Xamarin.iOS.framework/Versions/9.1.0.31/bin/mtouch \
 	--cache \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/iOS/obj/iPhoneSimulator/Debug/mtouch-cache \
 	--sim \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/iOS/bin/iPhoneSimulator/Debug/CorflowMobileiOS.app \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/iOS/bin/iPhoneSimulator/Debug/CorflowMobileiOS.app \
 	--executable \
 	CorflowMobileiOS \
 	--debug \
@@ -17,7 +17,7 @@
 	7.0 \
 	--abi=i386 \
 	--symbollist \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/iOS/obj/iPhoneSimulator/Debug/mtouch-symbols.list \
 	--dsym=no \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.dll \
@@ -26,65 +26,65 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Xamarin.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.TestCloud.Agent.0.13.0/lib/Xamarin.iOS10/Calabash.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.TestCloud.Agent.0.13.0/lib/Xamarin.iOS10/Calabash.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Zumero.2.1.0.2939/lib/Xamarin.iOS10/Zumero.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Zumero.2.1.0.2939/lib/Xamarin.iOS10/Zumero.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/ZXingNetMobile.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/ZXingNetMobile.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/zxing.portable.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/zxing.portable.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.IoC.2.0.5782/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/XLabs.Ioc.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.IoC.2.0.5782/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/XLabs.Ioc.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/ExifLib.PCL.1.0.1/lib/portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/ExifLib.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/ExifLib.PCL.1.0.1/lib/portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/ExifLib.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Core.2.0.5782/lib/Xamarin.iOS10/XLabs.Core.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Core.2.0.5782/lib/Xamarin.iOS10/XLabs.Core.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Serialization.2.0.5782/lib/Xamarin.iOS10/XLabs.Serialization.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Serialization.2.0.5782/lib/Xamarin.iOS10/XLabs.Serialization.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/System.Core.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/CorflowMobile.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/CorflowMobile.dll \
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/mscorlib.dll \
 	-r \
@@ -180,63 +180,63 @@
 	-r \
 	/Library/Frameworks/Xamarin.iOS.framework/Versions/Current/lib/mono/Xamarin.iOS/Facades/System.Xml.XmlSerializer.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.TestCloud.Agent.0.13.0/lib/Xamarin.iOS10/Calabash.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.TestCloud.Agent.0.13.0/lib/Xamarin.iOS10/Calabash.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Microsoft.IdentityModel.Clients.ActiveDirectory.3.5.208051316-alpha/lib/Xamarin.iOS10/Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugins.Forms.ImageCircle.1.1.6/lib/Xamarin.iOS10/ImageCircle.Forms.Plugin.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Toasts.Forms.Plugin.1.0.6.18/lib/Xamarin.iOS10/Toasts.Forms.Plugin.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Core.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.Maps.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Maps.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Platform.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xamarin.Forms.1.5.1.6471/lib/Xamarin.iOS10/Xamarin.Forms.Xaml.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.Abstractions.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Xam.Plugin.Connectivity.1.0.4/lib/Xamarin.iOS10/Connectivity.Plugin.Abstractions.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/Zumero.2.1.0.2939/lib/Xamarin.iOS10/Zumero.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/Zumero.2.1.0.2939/lib/Xamarin.iOS10/Zumero.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/sqlite-net-pcl.1.0.11/lib/portable-net45+wp8+wpa81+win8+MonoAndroid10+MonoTouch10+Xamarin.iOS10/SQLite-net.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/ZXingNetMobile.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/ZXingNetMobile.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/zxing.portable.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/Components/zxing.net.mobile-1.5.1.0/lib/ios-unified/zxing.portable.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.IoC.2.0.5782/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/XLabs.Ioc.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.IoC.2.0.5782/lib/portable-net45+netcore45+wpa81+wp8+MonoAndroid1+MonoTouch1+Xamarin.iOS10/XLabs.Ioc.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/ExifLib.PCL.1.0.1/lib/portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/ExifLib.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/ExifLib.PCL.1.0.1/lib/portable-net45+sl50+win+WindowsPhoneApp81+wp80+Xamarin.iOS10+MonoAndroid10+MonoTouch10/ExifLib.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Core.2.0.5782/lib/Xamarin.iOS10/XLabs.Core.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Core.2.0.5782/lib/Xamarin.iOS10/XLabs.Core.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Platform.2.0.5782/lib/Xamarin.iOS10/XLabs.Platform.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Serialization.2.0.5782/lib/Xamarin.iOS10/XLabs.Serialization.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Serialization.2.0.5782/lib/Xamarin.iOS10/XLabs.Serialization.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.iOS.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.iOS.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/XLabs.Forms.2.0.5782/lib/Xamarin.iOS10/XLabs.Forms.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/packages/SQLitePCL.raw_basic.0.8.2/build/Xamarin.iOS10/pinvoke_sqlite3/anycpu/SQLitePCL.raw.dll \
 	-r \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/CorflowMobile.dll \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/bin/Debug/CorflowMobile.dll \
 	--target-framework \
 	"Xamarin.iOS,v1.0" \
-	/Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/iOS/bin/iPhoneSimulator/Debug//CorflowMobileiOS.exe \
+	/Users/alexandervandesteene/Burocenter/CorflowMobile/iOS/bin/iPhoneSimulator/Debug//CorflowMobileiOS.exe \
