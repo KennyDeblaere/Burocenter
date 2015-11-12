@@ -1,0 +1,1 @@
+<resources><color name="highlight_blue">#0094FF</color><style name="CustomTheme" parent="android:Theme.Material"><item name="android:icon">@android:color/transparent</item><item name="android:colorActivatedHighlight">@color/highlight_blue</item></style></resources>

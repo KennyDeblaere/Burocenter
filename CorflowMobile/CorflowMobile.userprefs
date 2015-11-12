@@ -1,0 +1,15 @@
+﻿<Properties StartupItem="iOS/CorflowMobile.iOS.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.127.0.0.1:53001" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Droid\CalendarViewRenderer.cs">
+    <Files>
+      <File FileName="Droid\CalendarViewRenderer.cs" Line="26" Column="18" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\CorflowMobile\Data\SyncService.cs" line="55" column="1" />
+      <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\projects\Burocenter\CorflowMobile\CorflowMobile\Controllers\SyncController.cs" line="88" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

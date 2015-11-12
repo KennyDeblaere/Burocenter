@@ -1,0 +1,7 @@
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\Sample.Android.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\Mono.Android.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\mscorlib.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\SignaturePad.Android.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\System.Core.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\System.dll
+D:\Users\benja\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\Components\signature-pad-1.3.8\samples\Sample.Android\obj\Debug\assemblies\System.Xml.dll

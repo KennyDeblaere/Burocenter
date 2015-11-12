@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--Automatically generated-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Target Name="check_cpu_b6859726-8318-4a48-82fa-e47c219c24de" BeforeTargets="ResolveAssemblyReferences" Condition=" ( ($(Platform.ToLower()) != 'x86') AND ($(Platform.ToLower()) != 'x64') ) ">
+    <Error Text="$(Platform) is not supported. The Platform configuration must be x86 or x64" />
+  </Target>
+  <Target Name="InjectReference_7f96fb0d-5934-4ce0-a5ea-7533fce4ee8f" BeforeTargets="ResolveAssemblyReferences">
+    <!--platform.net45.pinvoke.x86-->
+    <ItemGroup Condition=" '$(Platform.ToLower())' == 'x86' ">
+      <Reference Include="Zumero">
+        <HintPath>$(MSBuildThisFileDirectory)pinvoke\x86\Zumero.dll</HintPath>
+      </Reference>
+      <Content Include="$(MSBuildThisFileDirectory)pinvoke\x86\zumero_client_api.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+    <!--platform.net45.pinvoke.x64-->
+    <ItemGroup Condition=" '$(Platform.ToLower())' == 'x64' ">
+      <Reference Include="Zumero">
+        <HintPath>$(MSBuildThisFileDirectory)pinvoke\x64\Zumero.dll</HintPath>
+      </Reference>
+      <Content Include="$(MSBuildThisFileDirectory)pinvoke\x64\zumero_client_api.dll">
+        <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      </Content>
+    </ItemGroup>
+  </Target>
+</Project>

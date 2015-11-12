@@ -1,0 +1,42 @@
+﻿<Properties StartupItem="Sample.Android.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.f50d6b91" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="..\..\..\..\CorflowMobile\Views\SandboxPage.cs">
+    <Files>
+      <File FileName="..\..\..\..\CorflowMobile\CorflowMobile.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\CorflowMobile\Views\SplashPage.cs" Line="61" Column="17" />
+      <File FileName="..\..\..\..\CorflowMobile\Views\LoginPage.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\CorflowMobile\Data\SyncService.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\CorflowMobile\Controllers\SyncController.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Droid\AndroidSyncService.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\Droid\CustomRenderer.cs" Line="1" Column="1" />
+      <File FileName="Activity1.cs" Line="1" Column="1" />
+      <File FileName="..\..\..\..\CorflowMobile\Views\SandboxPage.cs" Line="4" Column="20" />
+    </Files>
+    <Pads>
+      <Pad Id="ProjectPad">
+        <State name="__root__">
+          <Node name="CorflowMobile" expanded="True">
+            <Node name="CorflowMobile" expanded="True">
+              <Node name="Packages" expanded="True" />
+              <Node name="Views" expanded="True">
+                <Node name="SandboxPage.cs" selected="True" />
+              </Node>
+            </Node>
+            <Node name="CorflowMobile.Droid" expanded="True">
+              <Node name="Packages" expanded="True" />
+            </Node>
+          </Node>
+          <Node name="Sample.Android" expanded="True">
+            <Node name="Sample.Android" expanded="True" />
+          </Node>
+        </State>
+      </Pad>
+    </Pads>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore>
+      <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\CorflowMobile\Data\SyncService.cs" line="55" column="1" />
+    </BreakpointStore>
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>
