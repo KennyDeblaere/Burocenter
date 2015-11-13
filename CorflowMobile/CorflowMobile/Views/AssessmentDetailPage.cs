@@ -212,7 +212,7 @@ namespace CorflowMobile.Views
 			};
 
 			btnShowArticles = new Button {
-				Text = "gekochte producten"	
+				Text = "verbruikte producten"	
 			};
 			articlesButtonLayout.Children.Add (btnAddProduct);
 			articlesButtonLayout.Children.Add (btnShowArticles);
@@ -341,6 +341,8 @@ namespace CorflowMobile.Views
 						}
 					}
 				}
+
+				SyncController.Instance.TrySync();
 			};
 
 			btnShowArticles.Clicked += (object sender, EventArgs e) => {
