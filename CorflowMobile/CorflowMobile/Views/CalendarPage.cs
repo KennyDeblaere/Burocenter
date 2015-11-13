@@ -16,7 +16,7 @@ namespace CorflowMobile.Views
         {
             CalendarView calendarView = new CalendarView()
             {
-                BackgroundColor = Color.Blue,
+                //BackgroundColor = Color.Blue,
                 MinDate = CalendarView.FirstDayOfMonth(DateTime.Now.AddYears(-1)),
                 MaxDate = CalendarView.LastDayOfMonth(DateTime.Now.AddYears(1)),
                 HighlightedDateBackgroundColor = Color.FromRgb(227, 227, 227),
@@ -30,7 +30,7 @@ namespace CorflowMobile.Views
 
             calendarView.DateSelected += (object sender, DateTime e) =>
             {
-                ((RootPage)((CorflowMobile.App)Xamarin.Forms.Application.Current).MainPage).NavigateTo(new MenuListData()[0], e);
+				Navigation.PushAsync(new AssessmentPage(e));
             };
 
             Content = calendarView;

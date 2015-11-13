@@ -1,8 +1,11 @@
 ﻿<Properties StartupItem="iOS/CorflowMobile.iOS.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.127.0.0.1:53001" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Droid\CalendarViewRenderer.cs">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone4s.9.1" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="CorflowMobile/Views/AppointmentDetailPage.cs">
     <Files>
-      <File FileName="Droid\CalendarViewRenderer.cs" Line="26" Column="18" />
+      <File FileName="CorflowMobile/Views/CalendarPage.cs" Line="1" Column="1" />
+      <File FileName="iOS/AppDelegate.cs" Line="13" Column="1" />
+      <File FileName="Droid/MainActivity.cs" Line="1" Column="1" />
+      <File FileName="CorflowMobile/Views/AppointmentDetailPage.cs" Line="317" Column="16" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>

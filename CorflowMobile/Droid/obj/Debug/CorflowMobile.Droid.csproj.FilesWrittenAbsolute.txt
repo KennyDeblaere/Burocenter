@@ -132,3 +132,13 @@
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Droid/bin/Debug/SQLitePCL.raw.dll
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Droid/bin/Debug/CorflowMobile.dll
 /Users/alexandervandesteene/Desktop/Burocenter/CorflowMobile/Droid/bin/Debug/CorflowMobile.dll.mdb
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/CorflowMobile.Droid.dll.config
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/res/drawable/history2.png
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Ioc.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/ExifLib.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Core.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Platform.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Platform.Droid.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Serialization.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Forms.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/bin/Debug/XLabs.Forms.Droid.dll
