@@ -39,7 +39,7 @@ namespace CorflowMobile.Views
                     Where(t => t.BedrijfID == opdracht.BedrijfID).ToList().Count > 0 ? 
                     DependencyService.Get<IDataService>().LoadAll<BedrijfsPersoon>().Where(t => t.BedrijfID == opdracht.BedrijfID).ToList()[0].PersoonID -1 : 0] ;
             formattedAddress = syncItems.FormattedAddress(opdracht.Adres);
-			prestatielijst = syncItems.GetAchievements();
+			prestatielijst = syncItems.GetAchievementsFromAssessment (opdracht);
 			
 
 
