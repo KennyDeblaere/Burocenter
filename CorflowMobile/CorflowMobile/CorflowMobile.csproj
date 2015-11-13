@@ -106,6 +106,10 @@
     <Compile Include="Views\Helpers\Artikels\VerbruiktDataArtikel.cs" />
     <Compile Include="Views\Helpers\Artikels\ListVerbruiktArtikel.cs" />
     <Compile Include="Views\ReportPage.cs" />
+    <Compile Include="Views\Helpers\History\history.cs" />
+    <Compile Include="Views\Helpers\History\historyCell.cs" />
+    <Compile Include="Views\Helpers\History\historyData.cs" />
+    <Compile Include="Views\ListCalendarPage.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -180,4 +184,7 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
+  <ItemGroup>
+    <Folder Include="Views\Helpers\History\" />
+  </ItemGroup>
 </Project>

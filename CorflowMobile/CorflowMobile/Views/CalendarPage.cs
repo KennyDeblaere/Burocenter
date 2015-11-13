@@ -30,7 +30,7 @@ namespace CorflowMobile.Views
 
             calendarView.DateSelected += (object sender, DateTime e) =>
             {
-				Navigation.PushAsync(new AssessmentPage(e));
+				Navigation.PushAsync(new ListCalendarPage(e));
             };
 
             Content = calendarView;

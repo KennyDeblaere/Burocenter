@@ -34,7 +34,7 @@ namespace CorflowMobile.Views
 			layout.Children.Add (edReport);
 			layout.Children.Add (addReport);
 
-            Navigation.PopAsync();
+            //Navigation.PopAsync();
 
         }
 		protected override void OnAppearing ()

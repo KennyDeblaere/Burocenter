@@ -383,7 +383,7 @@ namespace CorflowMobile.Views
 		protected override void OnAppearing()
 		{
 
-			Content = new StackLayout {
+			Content =new ScrollView{ Content = new StackLayout {
                 Children = {
                     generalTermsLayout,
                     achievementLayout,
@@ -391,7 +391,8 @@ namespace CorflowMobile.Views
                     reportLayout,
                     finishedLayout,
                     btnSendAssesment
-                }
+					}
+				}
             };
 
 			base.OnAppearing();
