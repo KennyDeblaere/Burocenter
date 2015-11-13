@@ -4,6 +4,7 @@ using CorflowMobile.Models;
 using Xamarin.Forms;
 using CorflowMobile.Data;
 using CorflowMobile.Superclasses;
+using System.Collections.Generic;
 
 namespace CorflowMobile.Views
 {
@@ -34,7 +35,7 @@ namespace CorflowMobile.Views
 			layout.Children.Add (edReport);
 			layout.Children.Add (addReport);
 
-            //Navigation.PopAsync();
+            
 
         }
 		protected override void OnAppearing ()
@@ -104,9 +105,10 @@ namespace CorflowMobile.Views
 
                 if (syncItems.GetReportsByAchievement(achievement).Count > 0)
                 {
-                    syncItems.GetReportsByAchievement(achievement)[0].Titel = txtTitle.Text;
-                    syncItems.GetReportsByAchievement(achievement)[0].verslag = edReport.Text;
-                    DependencyService.Get<IDataService>().Update(syncItems.GetReportsByAchievement(achievement)[0]);
+					List<Verslag> report = syncItems.GetReportsByAchievement(achievement);
+					report[0].Titel = txtTitle.Text;
+					report[0].verslag = edReport.Text;
+					DependencyService.Get<IDataService>().Update(report[0]);
                     SyncController.Instance.TrySync();
 
                 }
@@ -119,6 +121,8 @@ namespace CorflowMobile.Views
                     DependencyService.Get<IDataService>().Insert(report);
                     SyncController.Instance.TrySync();
                 }
+
+				Navigation.PopAsync();
             };
         }
     }
