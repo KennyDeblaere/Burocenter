@@ -14,7 +14,7 @@ namespace CorflowMobile.Views
 
 		public static class Status
 		{
-			public static Color CompletedColor = Color.FromHex ("00A2D3");
+			public static Color CompletedColor = Color.FromHex ("#277227");
 			public static Color AlertColor = Color.FromHex ("E74C3C");
 			public static Color UnresolvedColor = Color.FromHex ("C5C5C5");
 		}
