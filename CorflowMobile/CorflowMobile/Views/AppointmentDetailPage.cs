@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Xamarin.Forms;
+using Toasts.Forms.Plugin.Abstractions;
 
 namespace CorflowMobile.Views
 {
@@ -12,7 +13,7 @@ namespace CorflowMobile.Views
     {
         private StackLayout layout, generalInfoLayout, ContactLayout, articleLayout, reportLayout, finishedLayout, achievementsortLayout, achievementLayout, timeLayout, previousLayout;
         private Label lblGeneralInfo, lblAddress, lblBTW, lblContact, lblSoldArticle, lblReport, lblFinished, lblSort, lblAchievement, lblDuration, lblMinutes, lblPrevious;
-        private Button btnAddReport, btnSendAppointment, btnListSoldArticles, btnListContacts, btnListPreviousContact;
+		private Button btnAddReport, btnSendAppointment, btnListSoldArticles, btnListContacts, btnListPreviousContact,btnshowListPerformances,btnAddPerformance;
         private Switch isFinished;
         private Picker pckAchievementsort;
 
@@ -243,9 +244,16 @@ namespace CorflowMobile.Views
             {
                 pckAchievementsort.Items.Add(actType.Omschrijving);
             }
+				
+			btnAddPerformance = new Button {
+				Text = "Voeg Prestatie toe"
+			};
 
-            pckAchievementsort.SelectedIndex = prestatielijst[0].PrestatiesoortID;
+			btnshowListPerformances = new Button{
+				Text="lijst presatie's"
+			};
 
+           
             achievementsortLayout.Children.Add(lblSort);
             achievementsortLayout.Children.Add(pckAchievementsort);
 
@@ -258,6 +266,9 @@ namespace CorflowMobile.Views
             });
             achievementLayout.Children.Add(timeLayout);
             achievementLayout.Children.Add(achievementsortLayout);
+			achievementLayout.Children.Add (btnAddPerformance);
+			achievementLayout.Children.Add (btnshowListPerformances);
+
             achievementLayout.Children.Add(new BoxView
             {
                 Color = Color.FromHex("ddd"),
@@ -322,25 +333,11 @@ namespace CorflowMobile.Views
             };
 
             btnSendAppointment.Clicked += (object sender, EventArgs e) => {
-                if (isFinished.IsToggled == true && pckAchievementsort.SelectedIndex != -1)
+                if (isFinished.IsToggled == true)
                 {
                     opdracht.Afgewerkt = true;
                     opdracht.Statuslabel = "Afgewerkt";
-
-                    switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex])
-                    {
-                        case "Herstelling":
-                            prestatielijst[0].PrestatiesoortID = 1;
-                            break;
-                        case "Verkoop":
-                            prestatielijst[0].PrestatiesoortID = 2;
-                            break;
-                        case "Onderhoud":
-                            prestatielijst[0].PrestatiesoortID = 0;
-                            break;
-                    }
-
-                    DependencyService.Get<IDataService>().Update(prestatielijst[0]);
+				
                     DependencyService.Get<IDataService>().Update(opdracht);
                     SyncController.Instance.TrySync();
                     Navigation.PopAsync();
@@ -354,6 +351,55 @@ namespace CorflowMobile.Views
             btnListPreviousContact.Clicked += (object sender, EventArgs e) => {
                 Navigation.PushAsync(new ListPreviousContact(opdracht, syncItems.GetCompanyFromAssessment(opdracht).Naam));
             };
+
+			btnAddPerformance.Clicked += (object sender, EventArgs e) => {
+				int prestatieid = 0;
+
+				if(pckAchievementsort.SelectedIndex != -1 ){
+					switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex]) 
+					{
+					case "Herstelling" : prestatieid = 1;
+						break;
+					case "Verkoop" : prestatieid = 2;
+						break;
+					case "Onderhoud" : prestatieid = 0;
+						break; 
+					}
+
+
+					List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = (List<PrestatiesPrestatiesoorten>)DependencyService.Get<IDataService>().LoadAll<PrestatiesPrestatiesoorten>()
+						.Where(t=> t.PrestatieID == prestatielijst[0].ID && t.PrestatieSoortID == prestatieid).ToList();
+
+
+					if(lijstprestatiesoorten.Count == 0){
+						PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten{
+							PrestatieID = prestatielijst[0].ID,
+							PrestatieSoortID = prestatieid
+						};
+
+						DependencyService.Get<IToastNotificator>().Notify(
+							ToastNotificationType.Success,
+							"Prestatie ",
+							"Presatie wordt toegevoegd",
+							TimeSpan.FromSeconds(3));
+
+						DependencyService.Get<IDataService> ().Insert(pres);
+						SyncController.Instance.TrySync();
+					}else{
+						DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
+					}
+
+				}else{
+					DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
+				};
+
+
+
+			};
+
+			btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
+				Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
+			};
         }
 
 

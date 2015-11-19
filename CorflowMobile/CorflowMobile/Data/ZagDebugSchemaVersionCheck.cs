@@ -73,7 +73,7 @@ namespace CorflowMobile.Data
 	
 	public static class ZagDebugSchemaVersionCheck
 	{
-		private const string GENERATED_SIG = "F21B65CB7BF23BA5FEE6A404325F2875B9084730";
+		private const string GENERATED_SIG = "8C600EF48F736B00356C35E5E1311A09EB26DCD2";
 
 		/// <summary>
 		///   Return TRUE if the database schema matches the

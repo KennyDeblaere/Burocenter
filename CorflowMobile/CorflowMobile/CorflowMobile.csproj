@@ -110,6 +110,11 @@
     <Compile Include="Views\Helpers\History\historyCell.cs" />
     <Compile Include="Views\Helpers\History\historyData.cs" />
     <Compile Include="Views\ListCalendarPage.cs" />
+    <Compile Include="Models\PrestatiesPrestatiesoorten.cs" />
+    <Compile Include="Views\ListPrestaties.cs" />
+    <Compile Include="Views\Helpers\performance\Performance.cs" />
+    <Compile Include="Views\Helpers\performance\PerformanceCell.cs" />
+    <Compile Include="Views\Helpers\performance\PerformanceData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -186,5 +191,6 @@
   </Target>
   <ItemGroup>
     <Folder Include="Views\Helpers\History\" />
+    <Folder Include="Views\Helpers\performance\" />
   </ItemGroup>
 </Project>

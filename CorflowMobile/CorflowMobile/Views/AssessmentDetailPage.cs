@@ -14,7 +14,7 @@ namespace CorflowMobile.Views
 	{
 		StackLayout generalTermsLayout,articleLayout,reportLayout,phoneLayout,articlesButtonLayout,finishedLayout,achievementLayout,achievementsortLayout,timeLayout;
 		Label lblCustommerName,lblDescription,lblAddress,lblPhone,lblGeneralTerms,lblPhoneNumber,lblArticle,lblReport,lblFinished,lblAchievement,lblSort,lblDuration,lblMinutes;
-		Button btnAddProduct,btnShowArticles, btnAddReport,btnSendAssesment;
+		Button btnAddProduct,btnShowArticles, btnAddReport,btnSendAssesment,btnAddPerformance,btnshowListPerformances;
         Switch isFinished;
         Picker pckAchievementsort;
         
@@ -49,7 +49,6 @@ namespace CorflowMobile.Views
 				presatie.Aanvang = DateTime.Now;
 				presatie.Duur = 0;
 				presatie.OpdrachtID = opdracht.ID;
-				presatie.PrestatiesoortID = 0;
 				DependencyService.Get<IDataService>().Insert(presatie);
 				SyncController.Instance.TrySync();
 				prestatielijst.Add (presatie);
@@ -143,7 +142,7 @@ namespace CorflowMobile.Views
 			};
 
 			lblDuration = new Label {
-				Text = "Duur: ",
+				Text = "Totale Duur: ",
 				TextColor = Color.Black
 			};
 
@@ -152,8 +151,20 @@ namespace CorflowMobile.Views
 				TextColor = Color.Black
 			};
 
+			btnAddPerformance = new Button {
+				Text = "Voeg Prestatie toe"
+			};
+
+			btnshowListPerformances = new Button{
+				Text="lijst presatie's"
+			};
+
 			timeLayout.Children.Add (lblDuration);
 			timeLayout.Children.Add (lblMinutes);
+
+
+
+
 
 			achievementsortLayout = new StackLayout {
 				Orientation = StackOrientation.Horizontal
@@ -175,10 +186,11 @@ namespace CorflowMobile.Views
 				pckAchievementsort.Items.Add(actType.Omschrijving);
 			}
 
-			pckAchievementsort.SelectedIndex = prestatielijst[0].PrestatiesoortID;
+
 				
 			achievementsortLayout.Children.Add (lblSort);
 			achievementsortLayout.Children.Add (pckAchievementsort);
+	
 
 			achievementLayout.Children.Add (lblAchievement);
 			achievementLayout.Children.Add (new BoxView{
@@ -188,6 +200,8 @@ namespace CorflowMobile.Views
 			});
 			achievementLayout.Children.Add (timeLayout);
 			achievementLayout.Children.Add (achievementsortLayout);
+			achievementLayout.Children.Add (btnAddPerformance);
+			achievementLayout.Children.Add (btnshowListPerformances);
 			achievementLayout.Children.Add (new BoxView{
 				Color = Color.FromHex ("ddd"),
 				HeightRequest=1,
@@ -373,27 +387,66 @@ namespace CorflowMobile.Views
 				Navigation.PushAsync(new ReportPage(prestatielijst[0]));
 			};
 
-			btnSendAssesment.Clicked += (object sender, EventArgs e) => {
-				if(isFinished.IsToggled == true && pckAchievementsort.SelectedIndex != -1 ){
-					opdracht.Afgewerkt = true;
-					opdracht.Statuslabel = "Afgewerkt";
+			btnAddPerformance.Clicked += (object sender, EventArgs e) => {
+				int prestatieid = 0;
 
+				if(pckAchievementsort.SelectedIndex != -1 ){
 					switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex]) 
 					{
-						case "Herstelling" : prestatielijst[0].PrestatiesoortID = 1;
-							break;
-						case "Verkoop" : prestatielijst[0].PrestatiesoortID = 2;
-							break;
-						case "Onderhoud" : prestatielijst[0].PrestatiesoortID = 0;
-							break; 
+					case "Herstelling" : prestatieid = 1;
+						break;
+					case "Verkoop" : prestatieid = 2;
+						break;
+					case "Onderhoud" : prestatieid = 0;
+						break; 
 					}
 
-					DependencyService.Get<IDataService> ().Update(prestatielijst[0]);
+
+					List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = (List<PrestatiesPrestatiesoorten>)DependencyService.Get<IDataService>().LoadAll<PrestatiesPrestatiesoorten>()
+						.Where(t=> t.PrestatieID == prestatielijst[0].ID && t.PrestatieSoortID == prestatieid).ToList();
+
+
+					if(lijstprestatiesoorten.Count == 0){
+						PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten{
+							PrestatieID = prestatielijst[0].ID,
+							PrestatieSoortID = prestatieid
+						};
+
+						DependencyService.Get<IToastNotificator>().Notify(
+							ToastNotificationType.Success,
+							"Prestatie ",
+							"Presatie wordt toegevoegd",
+							TimeSpan.FromSeconds(3));
+
+						DependencyService.Get<IDataService> ().Insert(pres);
+						SyncController.Instance.TrySync();
+					}else{
+						DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
+					}
+
+				}else{
+					DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
+				};
+
+
+
+			};
+
+			btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
+				Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
+			};
+
+			btnSendAssesment.Clicked += (object sender, EventArgs e) => {
+				if(isFinished.IsToggled == true) 
+				{
+					opdracht.Afgewerkt = true;
+					opdracht.Statuslabel = "Afgewerkt";
+				
 					DependencyService.Get<IDataService>().Update(opdracht);
 					SyncController.Instance.TrySync();
 					Navigation.PopAsync ();
 				}else{
-					DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren. of het product afgewerkt aan te vinken", "Ok");
+					DisplayAlert("Error", "Gelieve product afgewerkt aan te vinken", "Ok");
 				}
 			};
 

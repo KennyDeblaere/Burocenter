@@ -117,21 +117,6 @@ namespace CorflowMobile.Models
 		}
 		public static string OpdrachtID_PropertyName = "OpdrachtID";
 		private int OpdrachtID_private;
-		
-		
-
-
-        [NotNull]
-		[Column("PrestatiesoortID")]
-		public int PrestatiesoortID 
-		{ 
-			get { return PrestatiesoortID_private; }
-			set { SetProperty(PrestatiesoortID_private, value, (val) => { PrestatiesoortID_private = val; }, PrestatiesoortID_PropertyName); }
-		}
-		public static string PrestatiesoortID_PropertyName = "PrestatiesoortID";
-		private int PrestatiesoortID_private;
-		
-		
 
 
 		public override string ToString() 
@@ -156,10 +141,6 @@ namespace CorflowMobile.Models
 			sb.Append("|");
 
 			sb.Append(OpdrachtID.ToString());
-
-			sb.Append("|");
-
-			sb.Append(PrestatiesoortID.ToString());
 
 			sb.Append("|");
 

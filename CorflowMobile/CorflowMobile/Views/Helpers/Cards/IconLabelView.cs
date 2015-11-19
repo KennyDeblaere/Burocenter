@@ -81,7 +81,6 @@ namespace CorflowMobile.Views
 						presatie.Aanvang = DateTime.Now;
 						presatie.Duur = 0;
 						presatie.OpdrachtID = opdracht.ID;
-						presatie.PrestatiesoortID = 0;
 						DependencyService.Get<IDataService>().Insert(presatie);
 						SyncController.Instance.TrySync();
 					}
