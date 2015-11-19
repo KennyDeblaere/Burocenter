@@ -18,27 +18,29 @@ namespace CorflowMobile.Views
         private List<Opdracht> Cards;
         private SyncItems syncItems;
 
-        private void InitMap()
-        {
-            map = new Map
-            {
-                IsShowingUser = true,
-                HeightRequest = 180,
-                WidthRequest = 960,
-                VerticalOptions = LayoutOptions.FillAndExpand
-            };
-            map.MoveToRegion(MapSpan.FromCenterAndRadius(
-                new Position(36.9628066, -122.0194722), Distance.FromMiles(3))); // Santa Cruz golf course
-            var position = new Position(36.9628066, -122.0194722); // Latitude, Longitude
-            var pin = new Pin
-            {
-                Type = PinType.Place,
-                Position = position,
-                Label = "Santa Cruz",
-                Address = "custom detail info"
-            };
-            map.Pins.Add(pin);
-        }
+		private void InitMap()
+		{
+			map = new Map
+			{
+				IsShowingUser = true,
+				HeightRequest = 180,
+				WidthRequest = 960,
+				VerticalOptions = LayoutOptions.FillAndExpand
+			};
+			map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(double.Parse(Cards[0].Latitude), double.Parse(Cards[0].Longitude)), Distance.FromMiles(3)));
+			for (int i = 0; i < Cards.Count; i++)
+			{
+				var pin = new Pin
+				{
+					Type = PinType.Place,
+					Position = new Position(double.Parse(Cards[i].Latitude), double.Parse(Cards[i].Longitude)),
+					Label = Cards[i].Omschrijving,
+					Address = syncItems.FormattedAddress(Cards[i].BedrijfID)
+				};
+				map.Pins.Add(pin);
+			}
+		}
+
 		public AssessmentPage (DateTime date)
 		{
             Title = String.Format("{0} voor {1}",
@@ -47,7 +49,7 @@ namespace CorflowMobile.Views
 
             BackgroundColor = Color.White;
             
-            InitMap();
+            
 
 			Cards = new List<Opdracht> ();
             syncItems = new SyncItems();
@@ -59,6 +61,7 @@ namespace CorflowMobile.Views
 			};
 
             FillData(date);
+			InitMap();
 
 			layout = new StackLayout () {
 				Children = {
