@@ -289,6 +289,10 @@ namespace CorflowMobile.Views
 				var foundScan =  await scanner.Scan();
 				System.Diagnostics.Debug.WriteLine("gevonden: " +foundScan.Text);
 
+
+				if(foundScan.Text !="")
+				{
+
 				string[] foundScanString = foundScan.Text.Split('/');
 				System.Diagnostics.Debug.WriteLine("deel 1: " +foundScanString[0]);
 				System.Diagnostics.Debug.WriteLine("deel 2: " +foundScanString[1]);
@@ -345,13 +349,19 @@ namespace CorflowMobile.Views
 					}
 				}
 
+					DependencyService.Get<IToastNotificator>().Notify(
+						ToastNotificationType.Success,
+						"Product gescand",
+						nameArticle+" wordt toegevoegd",
+						TimeSpan.FromSeconds(3));
+					SyncController.Instance.TrySync();
 
-				DependencyService.Get<IToastNotificator>().Notify(
-					ToastNotificationType.Success,
-					"Product gescand",
-					nameArticle+" wordt toegevoegd",
-					TimeSpan.FromSeconds(3));
-				SyncController.Instance.TrySync();
+				}/*catch(Exception exception){
+					//Navigation.PopAsync ();
+				}*/
+
+
+
 			};
 
 			btnShowArticles.Clicked += (object sender, EventArgs e) => {
@@ -414,6 +424,7 @@ namespace CorflowMobile.Views
 			Content = null;
 			base.OnDisappearing ();
 		}
+			
 	}
 }
 
