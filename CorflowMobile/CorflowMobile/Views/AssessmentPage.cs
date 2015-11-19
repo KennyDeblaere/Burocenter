@@ -27,13 +27,13 @@ namespace CorflowMobile.Views
 				WidthRequest = 960,
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
-			map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(double.Parse(Cards[0].Latitude), double.Parse(Cards[0].Longitude)), Distance.FromMiles(3)));
+			map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(double.Parse(Cards[0].Latitude, new CultureInfo("en-US")), double.Parse(Cards[0].Longitude, new CultureInfo("en-US"))), Distance.FromMiles(3)));
 			for (int i = 0; i < Cards.Count; i++)
 			{
 				var pin = new Pin
 				{
 					Type = PinType.Place,
-					Position = new Position(double.Parse(Cards[i].Latitude), double.Parse(Cards[i].Longitude)),
+					Position = new Position(double.Parse(Cards[i].Latitude, new CultureInfo("en-US")), double.Parse(Cards[i].Longitude, new CultureInfo("en-US"))),
 					Label = Cards[i].Omschrijving,
 					Address = syncItems.FormattedAddress(Cards[i].BedrijfID)
 				};
