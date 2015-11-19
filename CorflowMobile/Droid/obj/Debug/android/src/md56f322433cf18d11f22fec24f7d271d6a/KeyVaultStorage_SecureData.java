@@ -16,7 +16,7 @@ public class KeyVaultStorage_SecureData
 			"n_getFormat:()Ljava/lang/String;:GetGetFormatHandler:Java.Security.IKeyInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"n_getEncoded:()[B:GetGetEncodedHandler:Java.Security.IKeyInvoker, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null\n" +
 			"";
-		mono.android.Runtime.register ("XLabs.Platform.Services.KeyVaultStorage/SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", KeyVaultStorage_SecureData.class, __md_methods);
+		mono.android.Runtime.register ("XLabs.Platform.Services.KeyVaultStorage+SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", KeyVaultStorage_SecureData.class, __md_methods);
 	}
 
 
@@ -24,14 +24,14 @@ public class KeyVaultStorage_SecureData
 	{
 		super ();
 		if (getClass () == KeyVaultStorage_SecureData.class)
-			mono.android.TypeManager.Activate ("XLabs.Platform.Services.KeyVaultStorage/SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("XLabs.Platform.Services.KeyVaultStorage+SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 	public KeyVaultStorage_SecureData (byte[] p0) throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == KeyVaultStorage_SecureData.class)
-			mono.android.TypeManager.Activate ("XLabs.Platform.Services.KeyVaultStorage/SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "System.Byte[], mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("XLabs.Platform.Services.KeyVaultStorage+SecureData, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "System.Byte[], mscorlib, Version=2.0.5.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e", this, new java.lang.Object[] { p0 });
 	}
 
 

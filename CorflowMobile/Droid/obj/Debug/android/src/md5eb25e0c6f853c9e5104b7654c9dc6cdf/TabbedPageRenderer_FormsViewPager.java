@@ -12,7 +12,7 @@ public class TabbedPageRenderer_FormsViewPager
 			"n_onInterceptTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnInterceptTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"n_onTouchEvent:(Landroid/view/MotionEvent;)Z:GetOnTouchEvent_Landroid_view_MotionEvent_Handler\n" +
 			"";
-		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer/FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", TabbedPageRenderer_FormsViewPager.class, __md_methods);
+		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer+FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", TabbedPageRenderer_FormsViewPager.class, __md_methods);
 	}
 
 
@@ -20,7 +20,7 @@ public class TabbedPageRenderer_FormsViewPager
 	{
 		super (p0);
 		if (getClass () == TabbedPageRenderer_FormsViewPager.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer/FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer+FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
 	}
 
 
@@ -28,7 +28,7 @@ public class TabbedPageRenderer_FormsViewPager
 	{
 		super (p0, p1);
 		if (getClass () == TabbedPageRenderer_FormsViewPager.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer/FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065:Android.Util.IAttributeSet, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0, p1 });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer+FormsViewPager, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Content.Context, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065:Android.Util.IAttributeSet, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0, p1 });
 	}
 
 

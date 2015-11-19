@@ -1,16 +1,20 @@
 ﻿<Properties StartupItem="Droid/CorflowMobile.Droid.csproj" RefactoringSettings.EnableRefactorings="True">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="MonoDevelop.IPhone.IPhoneSimulatorTarget.IPhone6s.9.1" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="CorflowMobile/Views/RootPage.cs">
     <Files>
-      <File FileName="CorflowMobile/Views/CalendarPage.cs" Line="39" Column="21" />
-      <File FileName="CorflowMobile/Views/RootPage.cs" Line="34" Column="2" />
-      <File FileName="iOS/Main.cs" Line="17" Column="1" />
+      <File FileName="CorflowMobile/Views/AssessmentDetailPage.cs" Line="215" Column="23" />
+      <File FileName="CorflowMobile/Views/ReportPage.cs" Line="122" Column="20" />
+      <File FileName="CorflowMobile/Views/Helpers/Cards/IconLabelView.cs" Line="1" Column="1" />
+      <File FileName="CorflowMobile/Views/Helpers/Cards/CardView.cs" Line="44" Column="1" />
+      <File FileName="CorflowMobile/Views/AppointmentDetailPage.cs" Line="328" Column="54" />
+      <File FileName="CorflowMobile/Views/RootPage.cs" Line="37" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\CorflowMobile\Data\SyncService.cs" line="55" column="1" />
       <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\projects\Burocenter\CorflowMobile\CorflowMobile\Controllers\SyncController.cs" line="88" column="1" />
+      <Breakpoint file="/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/Views/AppointmentDetailPage.cs" line="313" column="101" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />

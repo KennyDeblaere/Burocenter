@@ -15,7 +15,7 @@ public class TabbedPageRenderer_TabbedPageAdapter
 			"n_getItemPosition:(Ljava/lang/Object;)I:GetGetItemPosition_Ljava_lang_Object_Handler\n" +
 			"n_getPageTitle:(I)Ljava/lang/CharSequence;:GetGetPageTitle_IHandler\n" +
 			"";
-		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer/TabbedPageAdapter, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", TabbedPageRenderer_TabbedPageAdapter.class, __md_methods);
+		mono.android.Runtime.register ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer+TabbedPageAdapter, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", TabbedPageRenderer_TabbedPageAdapter.class, __md_methods);
 	}
 
 
@@ -23,7 +23,7 @@ public class TabbedPageRenderer_TabbedPageAdapter
 	{
 		super (p0);
 		if (getClass () == TabbedPageRenderer_TabbedPageAdapter.class)
-			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer/TabbedPageAdapter, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Support.V4.App.FragmentManager, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Xamarin.Forms.Platform.Android.AppCompat.TabbedPageRenderer+TabbedPageAdapter, Xamarin.Forms.Platform.Android, Version=1.5.0.0, Culture=neutral, PublicKeyToken=null", "Android.Support.V4.App.FragmentManager, Xamarin.Android.Support.v4, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", this, new java.lang.Object[] { p0 });
 	}
 
 

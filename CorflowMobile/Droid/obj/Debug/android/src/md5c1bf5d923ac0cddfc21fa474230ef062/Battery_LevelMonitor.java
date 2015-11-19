@@ -11,7 +11,7 @@ public class Battery_LevelMonitor
 		__md_methods = 
 			"n_onReceive:(Landroid/content/Context;Landroid/content/Intent;)V:GetOnReceive_Landroid_content_Context_Landroid_content_Intent_Handler\n" +
 			"";
-		mono.android.Runtime.register ("XLabs.Platform.Device.Battery/LevelMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", Battery_LevelMonitor.class, __md_methods);
+		mono.android.Runtime.register ("XLabs.Platform.Device.Battery+LevelMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", Battery_LevelMonitor.class, __md_methods);
 	}
 
 
@@ -19,7 +19,7 @@ public class Battery_LevelMonitor
 	{
 		super ();
 		if (getClass () == Battery_LevelMonitor.class)
-			mono.android.TypeManager.Activate ("XLabs.Platform.Device.Battery/LevelMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("XLabs.Platform.Device.Battery+LevelMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

@@ -27,7 +27,7 @@ public class Manager
 	{
 		super (p0);
 		if (getClass () == Manager.class)
-			mono.android.TypeManager.Activate ("Toasts.Forms.Plugin.Droid.Manager, Toasts.Forms.Plugin.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.OS.Handler/ICallback, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("Toasts.Forms.Plugin.Droid.Manager, Toasts.Forms.Plugin.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.OS.Handler+ICallback, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0 });
 	}
 
 
@@ -43,7 +43,7 @@ public class Manager
 	{
 		super (p0, p1);
 		if (getClass () == Manager.class)
-			mono.android.TypeManager.Activate ("Toasts.Forms.Plugin.Droid.Manager, Toasts.Forms.Plugin.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.OS.Looper, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065:Android.OS.Handler/ICallback, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0, p1 });
+			mono.android.TypeManager.Activate ("Toasts.Forms.Plugin.Droid.Manager, Toasts.Forms.Plugin.Droid, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null", "Android.OS.Looper, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065:Android.OS.Handler+ICallback, Mono.Android, Version=0.0.0.0, Culture=neutral, PublicKeyToken=84e04ff9cfb79065", this, new java.lang.Object[] { p0, p1 });
 	}
 
 

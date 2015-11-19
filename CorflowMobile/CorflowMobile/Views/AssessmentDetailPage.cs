@@ -6,6 +6,7 @@ using Xamarin.Forms;
 using CorflowMobile.Data;
 using CorflowMobile.Controllers;
 using CorflowMobile.Superclasses;
+using Toasts.Forms.Plugin.Abstractions;
 
 namespace CorflowMobile.Views
 {
@@ -25,7 +26,7 @@ namespace CorflowMobile.Views
         private Persoon contactpersoon;
 		private IScanner scanner;
 		private string formattedAddress;
-		
+		private string nameArticle;
 		
 
 
@@ -295,7 +296,9 @@ namespace CorflowMobile.Views
 				foreach(Artikel art in syncItems.GetArticles()){
 					if(art.Barcode == foundScanString[0])
 					{
+						
 						System.Diagnostics.Debug.WriteLine("juiste artikel ingescand :D :" + art.Omschrijving);
+						nameArticle = art.Omschrijving;
 						bool found = false;
 						foreach(Verbruiksartikel usedArticle in syncItems.GetUsedArticles())
 						{
@@ -342,6 +345,12 @@ namespace CorflowMobile.Views
 					}
 				}
 
+
+				DependencyService.Get<IToastNotificator>().Notify(
+					ToastNotificationType.Success,
+					"Product gescand",
+					nameArticle+" wordt toegevoegd",
+					TimeSpan.FromSeconds(3));
 				SyncController.Instance.TrySync();
 			};
 

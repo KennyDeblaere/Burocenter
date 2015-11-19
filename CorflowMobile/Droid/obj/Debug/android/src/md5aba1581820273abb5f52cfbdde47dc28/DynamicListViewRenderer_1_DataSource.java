@@ -14,7 +14,7 @@ public class DynamicListViewRenderer_1_DataSource
 			"n_getView:(ILandroid/view/View;Landroid/view/ViewGroup;)Landroid/view/View;:GetGetView_ILandroid_view_View_Landroid_view_ViewGroup_Handler\n" +
 			"n_getCount:()I:GetGetCountHandler\n" +
 			"";
-		mono.android.Runtime.register ("XLabs.Forms.Controls.DynamicListViewRenderer`1/DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", DynamicListViewRenderer_1_DataSource.class, __md_methods);
+		mono.android.Runtime.register ("XLabs.Forms.Controls.DynamicListViewRenderer`1+DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", DynamicListViewRenderer_1_DataSource.class, __md_methods);
 	}
 
 
@@ -22,14 +22,14 @@ public class DynamicListViewRenderer_1_DataSource
 	{
 		super ();
 		if (getClass () == DynamicListViewRenderer_1_DataSource.class)
-			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.DynamicListViewRenderer`1/DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.DynamicListViewRenderer`1+DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 	public DynamicListViewRenderer_1_DataSource (md5aba1581820273abb5f52cfbdde47dc28.DynamicListViewRenderer_1 p0) throws java.lang.Throwable
 	{
 		super ();
 		if (getClass () == DynamicListViewRenderer_1_DataSource.class)
-			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.DynamicListViewRenderer`1/DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "XLabs.Forms.Controls.DynamicListViewRenderer`1<T>, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", this, new java.lang.Object[] { p0 });
+			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.DynamicListViewRenderer`1+DataSource, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "XLabs.Forms.Controls.DynamicListViewRenderer`1<T>, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", this, new java.lang.Object[] { p0 });
 	}
 
 

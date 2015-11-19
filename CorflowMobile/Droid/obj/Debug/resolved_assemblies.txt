@@ -87,8 +87,9 @@
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Xml.ReaderWriter.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Xml.XDocument.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Xml.XmlSerializer.dll
-/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Net.Http.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Runtime.Serialization.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.ServiceModel.Internals.dll
+/Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Net.Http.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.ComponentModel.DataAnnotations.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.Numerics.dll
 /Users/alexandervandesteene/Burocenter/CorflowMobile/Droid/obj/Debug/assemblies/System.ComponentModel.Composition.dll

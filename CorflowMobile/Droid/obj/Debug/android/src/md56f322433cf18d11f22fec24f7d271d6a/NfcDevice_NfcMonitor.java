@@ -11,7 +11,7 @@ public class NfcDevice_NfcMonitor
 		__md_methods = 
 			"n_onReceive:(Landroid/content/Context;Landroid/content/Intent;)V:GetOnReceive_Landroid_content_Context_Landroid_content_Intent_Handler\n" +
 			"";
-		mono.android.Runtime.register ("XLabs.Platform.Services.NfcDevice/NfcMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", NfcDevice_NfcMonitor.class, __md_methods);
+		mono.android.Runtime.register ("XLabs.Platform.Services.NfcDevice+NfcMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", NfcDevice_NfcMonitor.class, __md_methods);
 	}
 
 
@@ -19,7 +19,7 @@ public class NfcDevice_NfcMonitor
 	{
 		super ();
 		if (getClass () == NfcDevice_NfcMonitor.class)
-			mono.android.TypeManager.Activate ("XLabs.Platform.Services.NfcDevice/NfcMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("XLabs.Platform.Services.NfcDevice+NfcMonitor, XLabs.Platform.Droid, Version=2.0.5782.12262, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 

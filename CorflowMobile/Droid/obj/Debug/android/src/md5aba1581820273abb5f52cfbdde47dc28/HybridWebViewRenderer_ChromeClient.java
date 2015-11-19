@@ -11,7 +11,7 @@ public class HybridWebViewRenderer_ChromeClient
 		__md_methods = 
 			"n_onGeolocationPermissionsShowPrompt:(Ljava/lang/String;Landroid/webkit/GeolocationPermissions$Callback;)V:GetOnGeolocationPermissionsShowPrompt_Ljava_lang_String_Landroid_webkit_GeolocationPermissions_Callback_Handler\n" +
 			"";
-		mono.android.Runtime.register ("XLabs.Forms.Controls.HybridWebViewRenderer/ChromeClient, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", HybridWebViewRenderer_ChromeClient.class, __md_methods);
+		mono.android.Runtime.register ("XLabs.Forms.Controls.HybridWebViewRenderer+ChromeClient, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", HybridWebViewRenderer_ChromeClient.class, __md_methods);
 	}
 
 
@@ -19,7 +19,7 @@ public class HybridWebViewRenderer_ChromeClient
 	{
 		super ();
 		if (getClass () == HybridWebViewRenderer_ChromeClient.class)
-			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.HybridWebViewRenderer/ChromeClient, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
+			mono.android.TypeManager.Activate ("XLabs.Forms.Controls.HybridWebViewRenderer+ChromeClient, XLabs.Forms.Droid, Version=2.0.5782.12263, Culture=neutral, PublicKeyToken=null", "", this, new java.lang.Object[] {  });
 	}
 
 
