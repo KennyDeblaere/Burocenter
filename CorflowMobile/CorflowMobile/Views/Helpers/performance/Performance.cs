@@ -1,10 +1,9 @@
 ﻿using System;
 
-namespace CorflowMobile
+namespace CorflowMobile.Views
 {
-	public class Performance
-	{
-		public String Name { get; set;}
-	}
+    public class Performance
+    {
+        public String Name { get; set; }
+    }
 }
-

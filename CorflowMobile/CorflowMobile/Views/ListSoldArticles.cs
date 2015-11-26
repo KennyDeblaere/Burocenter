@@ -1,6 +1,6 @@
-﻿using CorflowMobile.Models;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Models;
 using Xamarin.Forms;
-using CorflowMobile.Superclasses;
 
 namespace CorflowMobile.Views
 {
@@ -8,15 +8,10 @@ namespace CorflowMobile.Views
 	{
         private ListView lstvwUsedArticles;
 		private StackLayout layout;
-
-        private SyncItems syncItems;
 	
 
 		public ListSoldArticles (Opdracht assignment)
 		{
-
-            syncItems = new SyncItems();
-
 			Title = "Verbruikte Artikels";
 			Padding = new Thickness (10, 10, 10, 10);
 			BackgroundColor = Color.White;
@@ -28,7 +23,7 @@ namespace CorflowMobile.Views
 				ItemTemplate = new DataTemplate (typeof(VerbruiktArtikelCell)),
 				SeparatorColor = Color.FromHex ("ddd"),
 				BackgroundColor = Color.White,
-				ItemsSource = VerbruiktDataArtikel.GetData(syncItems.GetUsedArticlesByAssignment(assignment)),
+				ItemsSource = VerbruiktDataArtikel.GetData(DataController.Instance.GetUsedArticlesByAssignment(assignment)),
 
 			};
 

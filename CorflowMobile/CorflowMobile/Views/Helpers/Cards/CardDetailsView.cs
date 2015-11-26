@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using CorflowMobile.Models;
 using Xamarin.Forms;
 using CorflowMobile.Data;
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Views
 {
@@ -11,7 +12,7 @@ namespace CorflowMobile.Views
         private List<Bedrijf> bedrijven; 
 		public CardDetailsView (Opdracht opdracht)
 		{
-            bedrijven = (List<Bedrijf>)DependencyService.Get<IDataService>().LoadAll<Bedrijf>();
+            bedrijven = DataController.Instance.GetCompanys();
             BackgroundColor = Color.White;
 
 			Label TitleText = new Label () {

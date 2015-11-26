@@ -15,8 +15,8 @@ namespace CorflowMobile
 		public static List<history> GetData(List<Opdracht> lijstOpdrachten)
 		{
 			List<history> ListHistory = new List<history> ();
-			List<OpdrachtWerknemer> ListOpdrachtWerknemer = (List<OpdrachtWerknemer>)DependencyService.Get<IDataService> ().LoadAll<OpdrachtWerknemer> ().Where(t => t.WerknemerID == LoginController.Instance.GetCurrentUser.ID).ToList();
-			List<Bedrijf> ListBedrijven = (List<Bedrijf>)DependencyService.Get<IDataService>().LoadAll<Bedrijf>();
+			List<OpdrachtWerknemer> ListOpdrachtWerknemer = DataController.Instance.GetAssessmentEmployerByEmployerID(LoginController.Instance.GetCurrentUser.ID);
+            List<Bedrijf> ListBedrijven = DataController.Instance.GetCompanys();
 
 			if (lijstOpdrachten.Count > 0){
 			foreach (Opdracht opdracht in lijstOpdrachten) {

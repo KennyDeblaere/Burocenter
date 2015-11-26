@@ -5,7 +5,6 @@ using Xamarin.Forms;
 using CorflowMobile.Models;
 using CorflowMobile.Data;
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
-using CorflowMobile.Superclasses;
 
 namespace CorflowMobile.Controllers
 {
@@ -14,21 +13,16 @@ namespace CorflowMobile.Controllers
 		private static LoginController instance;
 
 		private const string clientId = "99614058-6a30-41c8-a23d-e3ef29bb6b9e";
-		private const string authority = "https://login.windows.net/common";
+        private const string authority = "https://login.windows.net/common";
 		private const string returnUri = "http://authentication-redirect";
 		private const string graphResourceUri = "https://graph.windows.net";
 		private const string graphApiVersion = "2013-11-08";
-		private AuthenticationResult authResult = null;
 		private bool isLoggedIn = false;
         private Persoon currentUser;
-
-        private SyncItems syncItems;
 
 		public event EventHandler<int> OnLoggedInSuccess = delegate { };
 		public event EventHandler<Exception> OnLoggedInFailed = delegate { };
 		public event EventHandler<Object> OnLoggedOut = delegate { };
-
-		private LoginController () { syncItems = new SyncItems(); }
 
 		public static LoginController Instance
 		{
@@ -60,22 +54,22 @@ namespace CorflowMobile.Controllers
 		public async void Login ()
 		{
 			try {
-				var data = await DependencyService.Get<CorflowMobile.Dependency.IAuthenticator> ().Authenticate (authority, graphResourceUri, clientId, returnUri);
+				var data = await DependencyService.Get<Dependency.IAuthenticator> ().Authenticate (authority, graphResourceUri, clientId, returnUri);
 				currentUser = findUserByID(data.UserInfo.GivenName, data.UserInfo.FamilyName);
 
                 if (OnLoggedInSuccess != null)
-					OnLoggedInSuccess (this, 0);
-			}
+                    OnLoggedInSuccess(this, 0);
+            }
 			catch (Exception e) {
 				if (OnLoggedInFailed != null)
 					OnLoggedInFailed (this, e);
 			}
-		}
+        }
 
 		private Persoon findUserByID(string firstname, string name)
 		{
             Persoon user = null;
-			List<Persoon> werknemers =syncItems.GetPersons().Where(t => t.Voornaam.ToLower() == firstname.ToLower() && t.Naam.ToLower() == name.ToLower() && t.Functie != 0).ToList();
+			List<Persoon> werknemers = DataController.Instance.GetPersons().Where(t => t.Voornaam.ToLower() == firstname.ToLower() && t.Naam.ToLower() == name.ToLower() && t.Functie != 0).ToList();
             if (werknemers.Count > 0)
             {
                 user = werknemers[0];
@@ -85,7 +79,7 @@ namespace CorflowMobile.Controllers
 
 		public void Logout()
 		{
-			DependencyService.Get<CorflowMobile.Dependency.IAuthenticator> ().Logout ();
+			DependencyService.Get<Dependency.IAuthenticator> ().Logout ();
 
 		}
 	}

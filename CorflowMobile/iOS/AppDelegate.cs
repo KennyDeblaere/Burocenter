@@ -11,8 +11,7 @@ using UIKit;
 using Foundation;
 using XLabs.Forms.Controls;
 using XLabs.Forms;
-
-
+using CorflowMobile.Controllers;
 
 [assembly: Dependency(typeof(CorflowMobile.iOS.SHA1Service))]
 [assembly: Dependency(typeof(CorflowMobile.Data.BaseSyncService))]
@@ -51,7 +50,6 @@ namespace CorflowMobile.iOS
 			var path = Path.Combine(libraryPath, sqliteFilename);
 
 			SyncController.DatabasePath = path;
-			SyncController.Tekstlabel = "Start";
 
 			LoadApplication(new CorflowMobile.App());
 

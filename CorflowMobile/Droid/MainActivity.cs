@@ -14,11 +14,12 @@ using System.IO;
 
 using Microsoft.IdentityModel.Clients.ActiveDirectory;
 using Toasts.Forms.Plugin.Droid;
+using CorflowMobile.Controllers;
 
 [assembly: Dependency(typeof(CorflowMobile.Droid.SHA1Service))]
 namespace CorflowMobile.Droid
 {
-	public class SHA1Service : CorflowMobile.Data.ISHA1Service
+	public class SHA1Service : Data.ISHA1Service
 	{
 		public string HashString(string input)
 		{

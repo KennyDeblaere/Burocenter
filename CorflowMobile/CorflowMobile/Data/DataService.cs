@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 using SQLite;
-
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Data
 {
@@ -15,11 +15,11 @@ namespace CorflowMobile.Data
         void Update(object item);
         void Insert(object item);
         bool HasNeverBeenSynced();
+        //Dictionary<Type, List<Type>> GetData(params Type[] types);
     }
 
     public class DataService : IDataService
     {
-        
         private SQLiteConnection _connection;
         public DataService()
         {
@@ -159,5 +159,17 @@ namespace CorflowMobile.Data
                 throw;
             }
         }
+
+		/*public Dictionary<String, List<T>> GetData<T>() where T : new()
+        {
+			Dictionary<Type, List<Type>> data = new Dictionary<String, List<Type>>();
+
+            foreach(Type type in types)
+            {
+                data.Add(type, LoadAll<type>());
+            }
+
+            return data;
+        }*/
     }
 }

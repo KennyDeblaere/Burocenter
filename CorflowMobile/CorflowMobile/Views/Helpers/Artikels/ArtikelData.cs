@@ -1,4 +1,5 @@
-﻿using CorflowMobile.Data;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Data;
 using CorflowMobile.Models;
 using System;
 using System.Collections.Generic;
@@ -17,7 +18,7 @@ namespace CorflowMobile.Views
 			List<GekochtArtikel> gekochtArtikels = new List<GekochtArtikel> ();
 
 			if (verkochteArtikels != null) {
-				List<Artikel> artikelen = (List<Artikel>)DependencyService.Get<IDataService>().LoadAll<Artikel>();
+				List<Artikel> artikelen = DataController.Instance.GetArticles();
 
 				foreach (Artikel art in artikelen) {
 

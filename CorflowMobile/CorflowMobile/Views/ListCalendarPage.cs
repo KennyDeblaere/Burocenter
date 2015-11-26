@@ -2,7 +2,6 @@
 using CorflowMobile.Controllers;
 using Xamarin.Forms;
 using System.Globalization;
-using CorflowMobile.Superclasses;
 using CorflowMobile.Models;
 using System.Collections.Generic;
 using CorflowMobile.Data;
@@ -16,7 +15,6 @@ namespace CorflowMobile
 	{
 		private StackLayout layout;
 		private ListView lstvCalendar;
-		private SyncItems syncItems;
 		private List<Opdracht> lijstgevonden;
 
 		public ListCalendarPage (DateTime date)
@@ -26,9 +24,8 @@ namespace CorflowMobile
 				date == DateTime.Today ? "vandaag" : date.ToString("d", new CultureInfo("nl-BE")));;
 
 			layout = new StackLayout();
-			syncItems = new SyncItems();
 
-			lijstgevonden = syncItems.GetAssignmentsForLogedInPersonByDate(date);
+			lijstgevonden = DataController.Instance.GetAssignmentsForLogedInPersonByDate(date);
 
 			lstvCalendar = new ListView
 			{
@@ -43,7 +40,7 @@ namespace CorflowMobile
 			lstvCalendar.ItemSelected += (sender, e) => {
 				if (e.SelectedItem != null){
 					history his = e.SelectedItem as history;
-					List<Opdracht> lijstopdracht = (List<Opdracht>)DependencyService.Get<IDataService>().LoadAll<Opdracht>().Where(t => t.ID == his.opdrachtID).ToList();
+					List<Opdracht> lijstopdracht = DataController.Instance.GetAssessmentsByID(his.opdrachtID);
 					Navigation.PushAsync(new AppointmentDetailPage(lijstopdracht[0]));
 
 				}

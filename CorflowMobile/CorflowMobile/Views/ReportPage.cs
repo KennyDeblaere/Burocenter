@@ -3,8 +3,8 @@ using CorflowMobile.Models;
 
 using Xamarin.Forms;
 using CorflowMobile.Data;
-using CorflowMobile.Superclasses;
 using System.Collections.Generic;
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Views
 {
@@ -16,15 +16,11 @@ namespace CorflowMobile.Views
         private Label lblTitle, lblReport;
         private Entry txtTitle;
 
-        private SyncItems syncItems;
-
         
 		public ReportPage (Prestatie achievement)
 		{
 			Title="Verslag";
 			Padding = new Thickness (10, 10, 10, 10);
-
-            syncItems = new SyncItems();
 
             InitComponents(achievement);
             InitLabels();
@@ -61,10 +57,10 @@ namespace CorflowMobile.Views
                 VerticalOptions = LayoutOptions.FillAndExpand
             };
 
-            if (syncItems.GetReportsByAchievement(achievement).Count > 0)
+            if (DataController.Instance.GetReportsByAchievement(achievement).Count > 0)
             {
-                txtTitle.Text = syncItems.GetReportsByAchievement(achievement)[0].Titel;
-                edReport.Text = syncItems.GetReportsByAchievement(achievement)[0].verslag;
+                txtTitle.Text = DataController.Instance.GetReportsByAchievement(achievement)[0].Titel;
+                edReport.Text = DataController.Instance.GetReportsByAchievement(achievement)[0].verslag;
             }
             else
             {
@@ -103,13 +99,13 @@ namespace CorflowMobile.Views
             addReport.Clicked += (object sender, EventArgs e) => {
 
 
-                if (syncItems.GetReportsByAchievement(achievement).Count > 0)
+                if (DataController.Instance.GetReportsByAchievement(achievement).Count > 0)
                 {
-					List<Verslag> report = syncItems.GetReportsByAchievement(achievement);
+					List<Verslag> report = DataController.Instance.GetReportsByAchievement(achievement);
 					report[0].Titel = txtTitle.Text;
 					report[0].verslag = edReport.Text;
-					DependencyService.Get<IDataService>().Update(report[0]);
-                    SyncController.Instance.TrySync();
+					DataController.Instance.Update(report[0]);
+                    SyncController.Instance.SyncNeeded();
 
                 }
                 else
@@ -118,8 +114,8 @@ namespace CorflowMobile.Views
                     report.Titel = txtTitle.Text;
                     report.verslag = edReport.Text;
                     report.Prestatie = achievement.ID;
-                    DependencyService.Get<IDataService>().Insert(report);
-                    SyncController.Instance.TrySync();
+                    DataController.Instance.Insert(report);
+                    SyncController.Instance.SyncNeeded();
                 }
 
 				Navigation.PopAsync();

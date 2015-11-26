@@ -1,51 +1,45 @@
 ﻿using System;
 
 using Xamarin.Forms;
-using CorflowMobile.Superclasses;
-using CorflowMobile.Views;
 
-namespace CorflowMobile
+namespace CorflowMobile.Views
 {
-	public class ListPrestaties : ContentPage
-	{
-		private ListView lstvwUsedArticles;
-		private StackLayout layout;
+    public class ListPrestaties : ContentPage
+    {
+        private ListView lstvwUsedArticles;
+        private StackLayout layout;
 
-		private SyncItems syncItems;
+        public ListPrestaties(int prestatieID)
+        {
+            Title = "Verbruikte Artikels";
+            Padding = new Thickness(10, 10, 10, 10);
+            BackgroundColor = Color.White;
 
-		public ListPrestaties (int prestatieID)
-		{
-			syncItems = new SyncItems();
+            layout = new StackLayout();
 
-			Title = "Verbruikte Artikels";
-			Padding = new Thickness (10, 10, 10, 10);
-			BackgroundColor = Color.White;
+            lstvwUsedArticles = new ListView
+            {
+                HasUnevenRows = true,
+                ItemTemplate = new DataTemplate(typeof(PerformanceCell)),
+                SeparatorColor = Color.FromHex("ddd"),
+                BackgroundColor = Color.White,
+                ItemsSource = PerformanceData.GetData(prestatieID),
 
-			layout = new StackLayout ();
+            };
 
-			lstvwUsedArticles = new ListView {
-				HasUnevenRows = true,
-				ItemTemplate = new DataTemplate (typeof(PerformanceCell)),
-				SeparatorColor = Color.FromHex ("ddd"),
-				BackgroundColor = Color.White,
-				ItemsSource = PerformanceData.GetData(prestatieID),
+            layout.Children.Add(lstvwUsedArticles);
+        }
 
-			};
-
-			layout.Children.Add (lstvwUsedArticles);
-		}
-
-		protected override void OnAppearing ()
-		{
-			Content = layout;
-			base.OnAppearing ();
-		}
-		protected override void OnDisappearing ()
-		{
-			Content = null;
-			base.OnDisappearing ();
-		}
-	}
+        protected override void OnAppearing()
+        {
+            Content = layout;
+            base.OnAppearing();
+        }
+        protected override void OnDisappearing()
+        {
+            Content = null;
+            base.OnDisappearing();
+        }
+    }
 }
-
 

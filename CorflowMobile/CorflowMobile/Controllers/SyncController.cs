@@ -1,30 +1,29 @@
 ﻿using System;
-
 using Xamarin.Forms;
 using CorflowMobile.Models;
-using System.ComponentModel;
 using CorflowMobile.Data;
 using Connectivity.Plugin;
 using Connectivity.Plugin.Abstractions;
 using Toasts.Forms.Plugin.Abstractions;
-using CorflowMobile.Controllers;
 
-namespace CorflowMobile
+namespace CorflowMobile.Controllers
 {
 	public class SyncController
 	{
 		private static SyncController instance;
+        private static string _dbPath;
 
-		private SyncParams _syncParams = null;
+        private SyncParams _syncParams = null;
 		private bool _syncInProgress = false;
-		private bool _isUserNotified = false;
+		private bool _userNotified = false;
+        private bool _syncNeeded = false;
 
 		public event EventHandler<SyncParams> OnSyncCompleted = delegate { };
 		public event EventHandler<Exception> OnSyncFailed = delegate { };
 
 		private SyncController ()
 		{
-			CrossConnectivity.Current.ConnectivityChanged += connectivityChanged;
+			CrossConnectivity.Current.ConnectivityChanged += (object sender, ConnectivityChangedEventArgs e) => { TrySync (); };
 
 			_syncParams = SyncParams.LoadSavedSyncParams();
 
@@ -46,48 +45,73 @@ namespace CorflowMobile
 			}
 		}
 
-		public static string Tekstlabel { get; set;}
-		public static TimeSpan start { get; set;}
+		public static string DatabasePath
+        {
+            get { return _dbPath; }
+            set { _dbPath = value; }
+        }
 
-		public static string DatabasePath { get; set; }
-
-		public bool SyncInProgress {
+        public bool SyncInProgress
+        {
 			get { return _syncInProgress; }
-			set { _syncInProgress = value;  } 
 		}
 
-		public SyncParams SyncParams
+        public bool HasNeverBeenSynced()
+        {
+            return DependencyService.Get<IDataService>().HasNeverBeenSynced();
+        }
+
+        public void SyncNeeded()
+        {
+            _syncNeeded = true;
+        }
+
+        public void TrySync()
 		{
-			get { return _syncParams; }
-		}
+            if (_syncNeeded)
+            {
+                if (CrossConnectivity.Current.IsConnected)
+                {
+                    if (!_syncInProgress)
+                    {
+                        _syncInProgress = true;
+                        DependencyService.Get<ISyncService>().StartBackgroundSync(_syncParams);
+                    }
+                }
+                else
+                {
+                    if (!_userNotified)
+                    {
+                        notifyUserOffline();
+                        _userNotified = true;
+                    }
+                }
+            }
+        }
 
-		public void TrySync()
-		{
-			if (CrossConnectivity.Current.IsConnected)
-			{
-				sync ();
-			}
-			else
-			{
-				if (!_isUserNotified)
-				{
-					notifyUserOffline ();
-					_isUserNotified = true;
-				}
-			}
-		}
+        public void NotifySyncCompleted(SyncParams p)
+        {
+            Device.BeginInvokeOnMainThread(() =>
+            {
+                if (!ZagDebugSchemaVersionCheck.VerifySchema())
+                    ((CorflowMobile.App)Xamarin.Forms.Application.Current).MainPage.DisplayAlert("Database Schema Changed", "The schema for the database has been changed since this application was generated.  This may cause failures if columns have been removed.  You may want to use Zumero Application Generator to recreate this app, based on the new schema.", "Ok");
 
-		private void sync()
-		{
-			if (!_syncInProgress)
-			{
-				_syncInProgress = true;
-				DependencyService.Get<ISyncService> ().StartBackgroundSync (_syncParams);
-			}
-				
-		}
+                _syncParams.SaveSyncParam();
+                _syncInProgress = false;
+                _syncNeeded = false;
 
-		public void NotifySyncFailed(Exception e)
+                if (_userNotified)
+                {
+                    notifyUserOnline();
+                    _userNotified = false;
+                }
+
+                if (OnSyncCompleted != null)
+                    OnSyncCompleted(this, p);
+            });
+        }
+
+        public void NotifySyncFailed(Exception e)
 		{
 			Device.BeginInvokeOnMainThread(() =>
 				{
@@ -103,39 +127,6 @@ namespace CorflowMobile
 					if (OnSyncFailed != null)
 						OnSyncFailed (this, e);
 				});
-		}
-
-
-		public void NotifySyncCompleted(SyncParams p)
-		{
-			Device.BeginInvokeOnMainThread(() =>
-				{
-					if (!ZagDebugSchemaVersionCheck.VerifySchema())
-						((CorflowMobile.App)Xamarin.Forms.Application.Current).MainPage.DisplayAlert("Database Schema Changed", "The schema for the database has been changed since this application was generated.  This may cause failures if columns have been removed.  You may want to use Zumero Application Generator to recreate this app, based on the new schema.", "Ok");
-
-					_syncParams.SaveSyncParam();
-					_syncInProgress = false;
-
-					if (_isUserNotified)
-					{
-						notifyUserOnline ();
-						_isUserNotified = false;
-					}
-
-					if (OnSyncCompleted != null)
-						OnSyncCompleted (this, p);
-				});
-		}
-
-		private void connectivityChanged(object sender, ConnectivityChangedEventArgs e)
-		{
-			if (CrossConnectivity.Current.IsConnected)
-				sync ();
-		}
-
-		public bool HasNeverBeenSynced ()
-		{
-			return DependencyService.Get<IDataService> ().HasNeverBeenSynced ();
 		}
 
 		private void notifyUserOffline ()

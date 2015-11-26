@@ -1,7 +1,6 @@
 ﻿using Xamarin.Forms;
 using System.Collections.Generic;
 using CorflowMobile.Models;
-using CorflowMobile.Superclasses;
 using System.Linq;
 using CorflowMobile.Controllers;
 
@@ -12,8 +11,7 @@ namespace CorflowMobile.Views
 		private StackLayout layout;
 		private StackLayout telephoneLayout;
 		private Label lblTelephone, lblEmail, lblbFunction,lblCompany,lblAddress,lblCollegues,lblSoldAt,lblCompanyName,lblTelephoneNumber;
-
-        private SyncItems syncItems;
+        
         private string formattedAddress;
 
         private List<Bedrijf> Companys;
@@ -28,18 +26,16 @@ namespace CorflowMobile.Views
 		public ContactDetails (Contact persoon)
 		{
 			Padding = new Thickness (10, 10, 10, 10);
-
-            syncItems = new SyncItems();
             
-            Companys = syncItems.GetCompanys().Where(t => persoon.Company == t.Naam).ToList();
-            allPersons = syncItems.GetPersons();
+            Companys = DataController.Instance.GetCompanys().Where(t => persoon.Company == t.Naam).ToList();
+            allPersons = DataController.Instance.GetPersons();
 			collegues = new List<Persoon> ();
-			formattedAddress = syncItems.FormattedAddress(0);
+			formattedAddress = DataController.Instance.FormattedAddress(0);
 
 			if (Companys.Count > 0) {
-                collegues = syncItems.GetAllContactsFromACompany(Companys[0].ID);
-				lstSoldArticles = syncItems.GetSoldArticlesByCompany(Companys[0]);
-                formattedAddress = syncItems.FormattedAddress(0);
+                collegues = DataController.Instance.GetAllContactsFromACompany(Companys[0].ID);
+				lstSoldArticles = DataController.Instance.GetSoldArticlesByCompany(Companys[0]);
+                formattedAddress = DataController.Instance.FormattedAddress(0);
 			}
 
             InitComponents(persoon);
@@ -128,7 +124,7 @@ namespace CorflowMobile.Views
 
             lblbFunction = new Label
             {
-                Text = "functie:" + syncItems.GetFunctions()[persoon.Functie].Omschrijving,
+                Text = "functie:" + DataController.Instance.GetFunctions()[persoon.Functie].Omschrijving,
                 TextColor = Color.Black
             };
             lblCompany = new Label

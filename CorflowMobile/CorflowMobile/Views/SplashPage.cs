@@ -3,14 +3,16 @@
 using Xamarin.Forms;
 using CorflowMobile.Models;
 using Toasts.Forms.Plugin.Abstractions;
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Views
 {
 	public class SplashPage : ContentPage
 	{
 		private StackLayout layout;
+        private Label splashLabel;
 
-		public SplashPage ()
+        public SplashPage ()
 		{
             Image imgLogo = new Image {
 				Source = "corflowmobile_logo.png"
@@ -47,7 +49,7 @@ namespace CorflowMobile.Views
 				IsRunning = true
 			};
 
-			Label splashLabel = new Label {
+			splashLabel = new Label {
 				Text = "Bezig met het synchroniseren van de lokale data ...",
 				TextColor = Color.FromHex("#666"),
 				FontSize = 12,
@@ -75,14 +77,27 @@ namespace CorflowMobile.Views
 					splashView
 				}
 			};
-		}
+        }
 
-		private void SyncCompleted(object sender, SyncParams e)
-		{
-			((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage ();
-		}
+        private void dataUpdated(object sender, EventArgs e)
+        {
+            ((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage();
+        }
 
-		private void SyncFailed(object sender, Exception e)
+        private void syncCompleted(object sender, SyncParams e)
+        {
+            if (DataController.Instance.IsUpdating())
+            {
+                DataController.Instance.OnDataUpdated += dataUpdated;
+                splashLabel.Text = "Laden ...";
+            }
+            else
+            {
+                ((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage();
+            }
+        }
+
+        private void syncFailed(object sender, Exception e)
 		{
             DependencyService.Get<IToastNotificator>().Notify(
                 ToastNotificationType.Error,
@@ -98,8 +113,8 @@ namespace CorflowMobile.Views
 			Content = layout;
 			base.OnAppearing();
 
-			SyncController.Instance.OnSyncCompleted += SyncCompleted;
-			SyncController.Instance.OnSyncFailed += SyncFailed;
+			SyncController.Instance.OnSyncCompleted += syncCompleted;
+			SyncController.Instance.OnSyncFailed += syncFailed;
 
 			if (!SyncController.Instance.SyncInProgress) {
 				((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage ();
@@ -112,8 +127,10 @@ namespace CorflowMobile.Views
 			Content = null;
 			base.OnDisappearing();
 
-			SyncController.Instance.OnSyncCompleted -= SyncCompleted;
-			SyncController.Instance.OnSyncFailed -= SyncFailed;
+			SyncController.Instance.OnSyncCompleted -= syncCompleted;
+			SyncController.Instance.OnSyncFailed -= syncFailed;
+
+            DataController.Instance.OnDataUpdated -= dataUpdated;
 		}
 	}
 }

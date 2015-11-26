@@ -1,5 +1,5 @@
-﻿using CorflowMobile.Models;
-using CorflowMobile.Superclasses;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Models;
 using Xamarin.Forms;
 
 namespace CorflowMobile.Views
@@ -9,12 +9,8 @@ namespace CorflowMobile.Views
         private ListView lstvwSoldArticles;
         private StackLayout layout;
 
-        private SyncItems syncItems;
-
         public ListSoldProducts(Opdracht opdracht)
         {
-            syncItems = new SyncItems();
-
             Title = "Gekochte Artikels";
             Padding = new Thickness(10, 10, 10, 10);
             BackgroundColor = Color.White;
@@ -25,7 +21,7 @@ namespace CorflowMobile.Views
             {
                 HasUnevenRows = true,
                 ItemTemplate = new DataTemplate(typeof(ArtikelCell)),
-                ItemsSource = ArtikelData.GetData(syncItems.GetSoldArticlesByCompany(syncItems.GetCompanyFromAssessment(opdracht))),
+                ItemsSource = ArtikelData.GetData(DataController.Instance.GetSoldArticlesByCompany(DataController.Instance.GetCompanyFromAssessment(opdracht))),
                 SeparatorColor = Color.FromHex("ddd"),
                 BackgroundColor = Color.White,
                 HeightRequest = 140

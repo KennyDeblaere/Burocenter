@@ -5,7 +5,6 @@ using CorflowMobile.Models;
 using Xamarin.Forms;
 using CorflowMobile.Data;
 using CorflowMobile.Controllers;
-using CorflowMobile.Superclasses;
 using Toasts.Forms.Plugin.Abstractions;
 
 namespace CorflowMobile.Views
@@ -14,14 +13,12 @@ namespace CorflowMobile.Views
 	{
 		StackLayout generalTermsLayout,articleLayout,reportLayout,phoneLayout,articlesButtonLayout,finishedLayout,achievementLayout,achievementsortLayout,timeLayout;
 		Label lblCustommerName,lblDescription,lblAddress,lblPhone,lblGeneralTerms,lblPhoneNumber,lblArticle,lblReport,lblFinished,lblAchievement,lblSort,lblDuration,lblMinutes;
-		Button btnAddProduct,btnShowArticles, btnAddReport,btnSendAssesment,btnAddPerformance,btnshowListPerformances;
+		Button btnAddProduct,btnShowArticles, btnAddReport,btnSendAssesment, btnAddPerformance, btnshowListPerformances;
         Switch isFinished;
         Picker pckAchievementsort;
         
 		private List<Ligplaats> ligplaatsen;
         private List<Prestatie> prestatielijst;
-
-        private SyncItems syncItems;
 
         private Persoon contactpersoon;
 		private IScanner scanner;
@@ -33,14 +30,14 @@ namespace CorflowMobile.Views
 
 		public AssessmentDetailPage (Opdracht opdracht)
 		{
-            syncItems = new SyncItems();
-            
-            contactpersoon = (Persoon)DependencyService.Get<IDataService>().LoadAll<Persoon>()
-                [DependencyService.Get<IDataService>().LoadAll<BedrijfsPersoon>().
-                    Where(t => t.BedrijfID == opdracht.BedrijfID).ToList().Count > 0 ? 
-                    DependencyService.Get<IDataService>().LoadAll<BedrijfsPersoon>().Where(t => t.BedrijfID == opdracht.BedrijfID).ToList()[0].PersoonID -1 : 0] ;
-            formattedAddress = syncItems.FormattedAddress(opdracht.Adres);
-			prestatielijst = syncItems.GetAchievementsFromAssessment (opdracht);
+            contactpersoon = DataController.Instance.GetPersons()
+            [
+                DataController.Instance.GetCompanyPersons().Where(t => t.BedrijfID == opdracht.BedrijfID).ToList().Count > 0 ?
+                    DataController.Instance.GetCompanyPersons().Where(t => t.BedrijfID == opdracht.BedrijfID).ToList()[0].PersoonID -1 :
+                    0
+            ];
+            formattedAddress = DataController.Instance.FormattedAddress(opdracht.Adres);
+			prestatielijst = DataController.Instance.GetAchievementsFromAssessment (opdracht);
 			
 
 
@@ -49,9 +46,9 @@ namespace CorflowMobile.Views
 				presatie.Aanvang = DateTime.Now;
 				presatie.Duur = 0;
 				presatie.OpdrachtID = opdracht.ID;
-				DependencyService.Get<IDataService>().Insert(presatie);
-				SyncController.Instance.TrySync();
-				prestatielijst.Add (presatie);
+                DataController.Instance.Insert(presatie);
+                SyncController.Instance.SyncNeeded();
+                prestatielijst.Add (presatie);
 			}
 
 
@@ -72,7 +69,7 @@ namespace CorflowMobile.Views
 			};
 
 			lblCustommerName = new Label {
-				Text = "Naam: "+syncItems.GetCompanys()[opdracht.BedrijfID].Naam,
+				Text = "Naam: "+ DataController.Instance.GetCompanys()[opdracht.BedrijfID].Naam,
 				TextColor = Color.Black
 			};
 
@@ -151,20 +148,18 @@ namespace CorflowMobile.Views
 				TextColor = Color.Black
 			};
 
-			btnAddPerformance = new Button {
-				Text = "Voeg Prestatie toe"
-			};
+            btnAddPerformance = new Button
+            {
+                Text = "Voeg Prestatie toe"
+            };
 
-			btnshowListPerformances = new Button{
-				Text="lijst presatie's"
-			};
+            btnshowListPerformances = new Button
+            {
+                Text = "lijst presatie's"
+            };
 
-			timeLayout.Children.Add (lblDuration);
+            timeLayout.Children.Add (lblDuration);
 			timeLayout.Children.Add (lblMinutes);
-
-
-
-
 
 			achievementsortLayout = new StackLayout {
 				Orientation = StackOrientation.Horizontal
@@ -181,16 +176,13 @@ namespace CorflowMobile.Views
 				VerticalOptions = LayoutOptions.CenterAndExpand,
 			};
 				
-			foreach (Prestatiesoort actType in syncItems.GetActivityType().OrderBy(t=>t.ID))
+			foreach (Prestatiesoort actType in DataController.Instance.GetAchievementtypes().OrderBy(t=>t.ID))
 			{
 				pckAchievementsort.Items.Add(actType.Omschrijving);
 			}
-
-
 				
 			achievementsortLayout.Children.Add (lblSort);
 			achievementsortLayout.Children.Add (pckAchievementsort);
-	
 
 			achievementLayout.Children.Add (lblAchievement);
 			achievementLayout.Children.Add (new BoxView{
@@ -200,9 +192,9 @@ namespace CorflowMobile.Views
 			});
 			achievementLayout.Children.Add (timeLayout);
 			achievementLayout.Children.Add (achievementsortLayout);
-			achievementLayout.Children.Add (btnAddPerformance);
-			achievementLayout.Children.Add (btnshowListPerformances);
-			achievementLayout.Children.Add (new BoxView{
+            achievementLayout.Children.Add(btnAddPerformance);
+            achievementLayout.Children.Add(btnshowListPerformances);
+            achievementLayout.Children.Add (new BoxView{
 				Color = Color.FromHex ("ddd"),
 				HeightRequest=1,
 				VerticalOptions = LayoutOptions.Fill
@@ -311,20 +303,21 @@ namespace CorflowMobile.Views
 				System.Diagnostics.Debug.WriteLine("deel 1: " +foundScanString[0]);
 				System.Diagnostics.Debug.WriteLine("deel 2: " +foundScanString[1]);
 
-				foreach(Artikel art in syncItems.GetArticles()){
+				foreach(Artikel art in DataController.Instance.GetArticles()){
 					if(art.Barcode == foundScanString[0])
 					{
 						
 						System.Diagnostics.Debug.WriteLine("juiste artikel ingescand :D :" + art.Omschrijving);
 						nameArticle = art.Omschrijving;
 						bool found = false;
-						foreach(Verbruiksartikel usedArticle in syncItems.GetUsedArticles())
+						foreach(Verbruiksartikel usedArticle in DataController.Instance.GetUsedArticles())
 						{
 							if(usedArticle.ArtikelID == art.ID && usedArticle.OpdrachtID == opdracht.ID)
 							{
 								found = true;
 								usedArticle.Gebruikt++;
-								DependencyService.Get<IDataService>().Update(usedArticle);
+                                DataController.Instance.Update(usedArticle);
+                                SyncController.Instance.SyncNeeded();
 							}
 						}
 
@@ -333,30 +326,32 @@ namespace CorflowMobile.Views
 							usedArt.ArtikelID = art.ID;
 							usedArt.Gebruikt = 1;
 							usedArt.OpdrachtID = opdracht.ID;
-							DependencyService.Get<IDataService>().Insert(usedArt);
-						}
+                            DataController.Instance.Insert(usedArt);
+                            SyncController.Instance.SyncNeeded();
+                            }
 
 						//toevoegen aangekocht product
 						VerkochtArtikel sold = new VerkochtArtikel();
 						sold.Artikel = art.ID;
-						sold.Bedrijf = syncItems.GetCompanys()[opdracht.BedrijfID].ID;
+						sold.Bedrijf = DataController.Instance.GetCompanys()[opdracht.BedrijfID].ID;
 						sold.Serienummer = foundScanString[1];
 						sold.Datum = DateTime.Today;
-						DependencyService.Get<IDataService>().Insert(sold);
+                        DataController.Instance.Insert(sold);
+                        SyncController.Instance.SyncNeeded();
 
-                        
 
-						foreach(Ligplaats place in syncItems.GetStockPlaces())
+                        foreach (Ligplaats place in DataController.Instance.GetStockplaces())
 						{
 							if(place.VerantwoordelijkeLigplaatsID == LoginController.Instance.GetCurrentUser.ID)
 							{
-								foreach(VerbruikLigplaats usedPlace in syncItems.GetUsedArticlesByStockPlace(place))
+								foreach(VerbruikLigplaats usedPlace in DataController.Instance.GetUsedArticlesByStockPlace(place))
 								{
 									if(place.ID == usedPlace.LigplaatsID && art.ID == usedPlace.ArtikelID)
 									{
 										usedPlace.AantalStock--;
-										DependencyService.Get<IDataService>().Update(usedPlace);
-									}
+                                        DataController.Instance.Update(usedPlace);
+                                        SyncController.Instance.SyncNeeded();
+                                    }
 								}
 							}
 						}
@@ -368,11 +363,8 @@ namespace CorflowMobile.Views
 						"Product gescand",
 						nameArticle+" wordt toegevoegd",
 						TimeSpan.FromSeconds(3));
-					SyncController.Instance.TrySync();
 
-				}/*catch(Exception exception){
-					//Navigation.PopAsync ();
-				}*/
+				}
 
 
 
@@ -387,64 +379,70 @@ namespace CorflowMobile.Views
 				Navigation.PushAsync(new ReportPage(prestatielijst[0]));
 			};
 
-			btnAddPerformance.Clicked += (object sender, EventArgs e) => {
-				int prestatieid = 0;
+            btnAddPerformance.Clicked += (object sender, EventArgs e) => {
+                int prestatieid = 0;
 
-				if(pckAchievementsort.SelectedIndex != -1 ){
-					switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex]) 
-					{
-					case "Herstelling" : prestatieid = 1;
-						break;
-					case "Verkoop" : prestatieid = 2;
-						break;
-					case "Onderhoud" : prestatieid = 0;
-						break; 
-					}
+                if (pckAchievementsort.SelectedIndex != -1)
+                {
+                    switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex])
+                    {
+                        case "Herstelling":
+                            prestatieid = 1;
+                            break;
+                        case "Verkoop":
+                            prestatieid = 2;
+                            break;
+                        case "Onderhoud":
+                            prestatieid = 0;
+                            break;
+                    }
+                    
+                    List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = DataController.Instance.GetAchievementsAchievementTypeByIDs(prestatielijst[0].ID, prestatieid);
+
+                    if (lijstprestatiesoorten.Count == 0)
+                    {
+                        PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten
+                        {
+                            PrestatieID = prestatielijst[0].ID,
+                            PrestatieSoortID = prestatieid
+                        };
+
+                        DependencyService.Get<IToastNotificator>().Notify(
+                            ToastNotificationType.Success,
+                            "Prestatie ",
+                            "Presatie wordt toegevoegd",
+                            TimeSpan.FromSeconds(3));
+
+                        DataController.Instance.Insert(pres);
+                        SyncController.Instance.SyncNeeded();
+                    }
+                    else
+                    {
+                        DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
+                    }
+                }
+                else
+                {
+                    DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
+                };
 
 
-					List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = (List<PrestatiesPrestatiesoorten>)DependencyService.Get<IDataService>().LoadAll<PrestatiesPrestatiesoorten>()
-						.Where(t=> t.PrestatieID == prestatielijst[0].ID && t.PrestatieSoortID == prestatieid).ToList();
 
+            };
 
-					if(lijstprestatiesoorten.Count == 0){
-						PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten{
-							PrestatieID = prestatielijst[0].ID,
-							PrestatieSoortID = prestatieid
-						};
+            btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
+                Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
+            };
 
-						DependencyService.Get<IToastNotificator>().Notify(
-							ToastNotificationType.Success,
-							"Prestatie ",
-							"Presatie wordt toegevoegd",
-							TimeSpan.FromSeconds(3));
+            btnSendAssesment.Clicked += (object sender, EventArgs e) => {
+                if (isFinished.IsToggled == true)
+                {
+                    opdracht.Afgewerkt = true;
+                    opdracht.Statuslabel = "Afgewerkt";
 
-						DependencyService.Get<IDataService> ().Insert(pres);
-						SyncController.Instance.TrySync();
-					}else{
-						DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
-					}
-
-				}else{
-					DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
-				};
-
-
-
-			};
-
-			btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
-				Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
-			};
-
-			btnSendAssesment.Clicked += (object sender, EventArgs e) => {
-				if(isFinished.IsToggled == true) 
-				{
-					opdracht.Afgewerkt = true;
-					opdracht.Statuslabel = "Afgewerkt";
-				
-					DependencyService.Get<IDataService>().Update(opdracht);
-					SyncController.Instance.TrySync();
-					Navigation.PopAsync ();
+                    DataController.Instance.Update(opdracht);
+                    SyncController.Instance.SyncNeeded();
+                    Navigation.PopAsync ();
 				}else{
 					DisplayAlert("Error", "Gelieve product afgewerkt aan te vinken", "Ok");
 				}

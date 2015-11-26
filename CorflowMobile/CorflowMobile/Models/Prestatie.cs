@@ -117,6 +117,8 @@ namespace CorflowMobile.Models
 		}
 		public static string OpdrachtID_PropertyName = "OpdrachtID";
 		private int OpdrachtID_private;
+		
+		
 
 
 		public override string ToString() 

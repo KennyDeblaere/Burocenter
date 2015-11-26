@@ -2,7 +2,6 @@
 using Xamarin.Forms;
 using System.Collections.Generic;
 using Xamarin.Forms.Maps;
-using CorflowMobile.Superclasses;
 using System;
 using CorflowMobile.Controllers;
 using System.Globalization;
@@ -16,7 +15,6 @@ namespace CorflowMobile.Views
         private Map map;
 
         private List<Opdracht> Cards;
-        private SyncItems syncItems;
 
 		private void InitMap()
 		{
@@ -27,18 +25,33 @@ namespace CorflowMobile.Views
 				WidthRequest = 960,
 				VerticalOptions = LayoutOptions.FillAndExpand
 			};
-			map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(double.Parse(Cards[0].Latitude, new CultureInfo("en-US")), double.Parse(Cards[0].Longitude, new CultureInfo("en-US"))), Distance.FromMiles(3)));
-			for (int i = 0; i < Cards.Count; i++)
-			{
-				var pin = new Pin
-				{
-					Type = PinType.Place,
-					Position = new Position(double.Parse(Cards[i].Latitude, new CultureInfo("en-US")), double.Parse(Cards[i].Longitude, new CultureInfo("en-US"))),
-					Label = Cards[i].Omschrijving,
-					Address = syncItems.FormattedAddress(Cards[i].BedrijfID)
-				};
-				map.Pins.Add(pin);
-			}
+            if (Cards.Count > 0)
+            {
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(double.Parse(Cards[0].Latitude, new CultureInfo("en-US")), double.Parse(Cards[0].Longitude, new CultureInfo("en-US"))), Distance.FromMiles(3)));
+                for (int i = 0; i < Cards.Count; i++)
+                {
+                    var pin = new Pin
+                    {
+                        Type = PinType.Place,
+                        Position = new Position(double.Parse(Cards[i].Latitude, new CultureInfo("en-US")), double.Parse(Cards[i].Longitude, new CultureInfo("en-US"))),
+                        Label = Cards[i].Omschrijving,
+                        Address = DataController.Instance.FormattedAddress(Cards[i].BedrijfID)
+                    };
+                    map.Pins.Add(pin);
+                }
+            }
+            else
+            {
+                map.MoveToRegion(MapSpan.FromCenterAndRadius(new Position(51.21335, 3.19485), Distance.FromMiles(3)));
+                var pin = new Pin
+                {
+                    Type = PinType.Place,
+                    Position = new Position(51.21335, 3.19485),
+                    Label = "Buro Center",
+                    Address = DataController.Instance.FormattedAddress(103)
+                };
+                map.Pins.Add(pin);
+            }
 		}
 
 		public AssessmentPage (DateTime date)
@@ -52,7 +65,6 @@ namespace CorflowMobile.Views
             
 
 			Cards = new List<Opdracht> ();
-            syncItems = new SyncItems();
 
 			cardLayout = new StackLayout {
 				Spacing = 15,
@@ -78,7 +90,7 @@ namespace CorflowMobile.Views
             cardLayout.Children.Clear();
             Cards.Clear();
 
-            Cards = syncItems.GetAssignmentsForLogedInPersonByDate(date);
+            Cards = DataController.Instance.GetAssignmentsForLogedInPersonByDate(date);
             foreach (Opdracht assignment in Cards)
                 cardLayout.Children.Add(new CardView(assignment));
         }

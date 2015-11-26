@@ -1,7 +1,5 @@
-using System;
-using System.Text;
-using Xamarin.Forms;
 using SQLite;
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Models
 {

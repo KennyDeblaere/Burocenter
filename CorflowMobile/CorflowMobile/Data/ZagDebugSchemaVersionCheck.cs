@@ -63,6 +63,7 @@
 using System;
 using SQLite;
 using Xamarin.Forms;
+using CorflowMobile.Controllers;
 
 namespace CorflowMobile.Data
 {
@@ -73,7 +74,7 @@ namespace CorflowMobile.Data
 	
 	public static class ZagDebugSchemaVersionCheck
 	{
-		private const string GENERATED_SIG = "8C600EF48F736B00356C35E5E1311A09EB26DCD2";
+		private const string GENERATED_SIG = "0AC35D80B6AB5C7C01166EA230AFFE151464E270";
 
 		/// <summary>
 		///   Return TRUE if the database schema matches the

@@ -1,19 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace CorflowMobile.Models
+﻿namespace CorflowMobile.Models
 {
     class NullObjects
     {
-        public Persoon NullPerson()
+        public Persoon Persoon()
         {
             return new Persoon() { Naam = "", Voornaam = ""};
         }
 
-        public Bedrijf NullBedrijf()
+        public Bedrijf Bedrijf()
         {
             return new Bedrijf() { Naam = "Geen bedrijf gevonden" };
         }

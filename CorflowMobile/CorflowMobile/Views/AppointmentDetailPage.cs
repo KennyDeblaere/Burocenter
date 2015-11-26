@@ -1,11 +1,11 @@
-﻿using CorflowMobile.Data;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Data;
 using CorflowMobile.Models;
-using CorflowMobile.Superclasses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Xamarin.Forms;
 using Toasts.Forms.Plugin.Abstractions;
+using Xamarin.Forms;
 
 namespace CorflowMobile.Views
 {
@@ -13,22 +13,20 @@ namespace CorflowMobile.Views
     {
         private StackLayout layout, generalInfoLayout, ContactLayout, articleLayout, reportLayout, finishedLayout, achievementsortLayout, achievementLayout, timeLayout, previousLayout;
         private Label lblGeneralInfo, lblAddress, lblBTW, lblContact, lblSoldArticle, lblReport, lblFinished, lblSort, lblAchievement, lblDuration, lblMinutes, lblPrevious;
-		private Button btnAddReport, btnSendAppointment, btnListSoldArticles, btnListContacts, btnListPreviousContact,btnshowListPerformances,btnAddPerformance;
+        private Button btnAddReport, btnSendAppointment, btnListSoldArticles, btnListContacts, btnListPreviousContact, btnshowListPerformances, btnAddPerformance;
         private Switch isFinished;
         private Picker pckAchievementsort;
 
         private List<Prestatie> prestatielijst;
 
         private string formattedAddress;
-        private SyncItems syncItems;
 
         public AppointmentDetailPage(Opdracht opdracht)
         {
-            syncItems = new SyncItems();
-            formattedAddress = syncItems.FormattedAddress(syncItems.GetCompanyFromAssessment(opdracht).ID);
-            prestatielijst = syncItems.GetAchievements();
+            formattedAddress = DataController.Instance.FormattedAddress(DataController.Instance.GetCompanyFromAssessment(opdracht).ID);
+            prestatielijst = DataController.Instance.GetAchievements();
 
-            Title = syncItems.GetCompanyFromAssessment(opdracht).Naam;
+            Title = DataController.Instance.GetCompanyFromAssessment(opdracht).Naam;
             BackgroundColor = Color.White;
             Padding = new Thickness(10, 10, 10, 10);
             layout = new StackLayout();
@@ -51,7 +49,7 @@ namespace CorflowMobile.Views
 
             lblBTW = new Label
             {
-                Text = "BTW: " + syncItems.GetCompanyFromAssessment(opdracht).BTW,
+                Text = "BTW: " + DataController.Instance.GetCompanyFromAssessment(opdracht).BTW,
                 TextColor = Color.Black
             };
 
@@ -240,20 +238,21 @@ namespace CorflowMobile.Views
                 VerticalOptions = LayoutOptions.CenterAndExpand,
             };
 
-            foreach (Prestatiesoort actType in syncItems.GetActivityType().OrderBy(t => t.ID))
+            foreach (Prestatiesoort actType in DataController.Instance.GetAchievementtypes().OrderBy(t => t.ID))
             {
                 pckAchievementsort.Items.Add(actType.Omschrijving);
             }
-				
-			btnAddPerformance = new Button {
-				Text = "Voeg Prestatie toe"
-			};
 
-			btnshowListPerformances = new Button{
-				Text="lijst presatie's"
-			};
+            btnAddPerformance = new Button
+            {
+                Text = "Voeg Prestatie toe"
+            };
 
-           
+            btnshowListPerformances = new Button
+            {
+                Text = "lijst presatie's"
+            };
+
             achievementsortLayout.Children.Add(lblSort);
             achievementsortLayout.Children.Add(pckAchievementsort);
 
@@ -266,9 +265,8 @@ namespace CorflowMobile.Views
             });
             achievementLayout.Children.Add(timeLayout);
             achievementLayout.Children.Add(achievementsortLayout);
-			achievementLayout.Children.Add (btnAddPerformance);
-			achievementLayout.Children.Add (btnshowListPerformances);
-
+            achievementLayout.Children.Add(btnAddPerformance);
+            achievementLayout.Children.Add(btnshowListPerformances);
             achievementLayout.Children.Add(new BoxView
             {
                 Color = Color.FromHex("ddd"),
@@ -321,7 +319,7 @@ namespace CorflowMobile.Views
             layout.Children.Add(btnSendAppointment);
 
             btnAddReport.Clicked += (object sender, EventArgs e) => {
-                Navigation.PushAsync(new ReportPage(syncItems.GetAchievementsFromAssessment(opdracht)[0]));
+                Navigation.PushAsync(new ReportPage(DataController.Instance.GetAchievementsFromAssessment(opdracht)[0]));
             };
 
             btnListSoldArticles.Clicked += (object sender, EventArgs e) => {
@@ -329,7 +327,7 @@ namespace CorflowMobile.Views
             };
 
             btnListContacts.Clicked += (object sender, EventArgs e) => {
-                Navigation.PushAsync(new ListContacts(syncItems.GetAllContactsFromACompany(syncItems.GetCompanyFromAssessment(opdracht).ID)));
+                Navigation.PushAsync(new ListContacts(DataController.Instance.GetAllContactsFromACompany(DataController.Instance.GetCompanyFromAssessment(opdracht).ID)));
             };
 
             btnSendAppointment.Clicked += (object sender, EventArgs e) => {
@@ -337,69 +335,73 @@ namespace CorflowMobile.Views
                 {
                     opdracht.Afgewerkt = true;
                     opdracht.Statuslabel = "Afgewerkt";
-				
-                    DependencyService.Get<IDataService>().Update(opdracht);
-                    SyncController.Instance.TrySync();
+
+                    DataController.Instance.Update(opdracht);
+                    SyncController.Instance.SyncNeeded();
                     Navigation.PopAsync();
                 }
                 else
                 {
-                    DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren. of het product afgewerkt aan te vinken", "Ok");
+                    DisplayAlert("Error", "Gelieve het product afgewerkt aan te vinken", "Ok");
                 }
             };
 
             btnListPreviousContact.Clicked += (object sender, EventArgs e) => {
-                Navigation.PushAsync(new ListPreviousContact(opdracht, syncItems.GetCompanyFromAssessment(opdracht).Naam));
+                Navigation.PushAsync(new ListPreviousContact(opdracht, DataController.Instance.GetCompanyFromAssessment(opdracht).Naam));
             };
 
-			btnAddPerformance.Clicked += (object sender, EventArgs e) => {
-				int prestatieid = 0;
+            btnAddPerformance.Clicked += (object sender, EventArgs e) => {
+                int prestatieid = 0;
 
-				if(pckAchievementsort.SelectedIndex != -1 ){
-					switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex]) 
-					{
-					case "Herstelling" : prestatieid = 1;
-						break;
-					case "Verkoop" : prestatieid = 2;
-						break;
-					case "Onderhoud" : prestatieid = 0;
-						break; 
-					}
+                if (pckAchievementsort.SelectedIndex != -1)
+                {
+                    switch (pckAchievementsort.Items[pckAchievementsort.SelectedIndex])
+                    {
+                        case "Herstelling":
+                            prestatieid = 1;
+                            break;
+                        case "Verkoop":
+                            prestatieid = 2;
+                            break;
+                        case "Onderhoud":
+                            prestatieid = 0;
+                            break;
+                    }
+                    
+                    List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = DataController.Instance.GetAchievementsAchievementTypeByIDs(prestatielijst[0].ID, prestatieid);
+                    
+                    if (lijstprestatiesoorten.Count == 0)
+                    {
+                        PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten
+                        {
+                            PrestatieID = prestatielijst[0].ID,
+                            PrestatieSoortID = prestatieid
+                        };
 
+                        DependencyService.Get<IToastNotificator>().Notify(
+                            ToastNotificationType.Success,
+                            "Prestatie ",
+                            "Presatie wordt toegevoegd",
+                            TimeSpan.FromSeconds(3));
 
-					List<PrestatiesPrestatiesoorten> lijstprestatiesoorten = (List<PrestatiesPrestatiesoorten>)DependencyService.Get<IDataService>().LoadAll<PrestatiesPrestatiesoorten>()
-						.Where(t=> t.PrestatieID == prestatielijst[0].ID && t.PrestatieSoortID == prestatieid).ToList();
+                        DataController.Instance.Insert(pres);
+                        SyncController.Instance.SyncNeeded();
+                    }
+                    else
+                    {
+                        DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
+                    }
 
+                }
+                else
+                {
+                    DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
+                };
+            };
 
-					if(lijstprestatiesoorten.Count == 0){
-						PrestatiesPrestatiesoorten pres = new PrestatiesPrestatiesoorten{
-							PrestatieID = prestatielijst[0].ID,
-							PrestatieSoortID = prestatieid
-						};
-
-						DependencyService.Get<IToastNotificator>().Notify(
-							ToastNotificationType.Success,
-							"Prestatie ",
-							"Presatie wordt toegevoegd",
-							TimeSpan.FromSeconds(3));
-
-						DependencyService.Get<IDataService> ().Insert(pres);
-						SyncController.Instance.TrySync();
-					}else{
-						DisplayAlert("Error", "Opdracht is al toegevoegd", "Ok");
-					}
-
-				}else{
-					DisplayAlert("Error", "Gelieve een prestatiesoort te selcteren", "Ok");
-				};
-
-
-
-			};
-
-			btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
-				Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
-			};
+            btnshowListPerformances.Clicked += (object sender, EventArgs e) => {
+                Navigation.PushAsync(new ListPrestaties(prestatielijst[0].ID));
+            };
         }
 
 

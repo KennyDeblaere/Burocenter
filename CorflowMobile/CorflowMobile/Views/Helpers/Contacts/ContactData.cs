@@ -1,4 +1,5 @@
-﻿using CorflowMobile.Data;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Data;
 using CorflowMobile.Models;
 using System;
 using System.Collections.Generic;
@@ -19,8 +20,8 @@ namespace CorflowMobile.Views
             {
                 foreach (Persoon p in personen)
                 {
-                    List<BedrijfsPersoon> bedrijfsPersonen = (List<BedrijfsPersoon>)DependencyService.Get<IDataService>().LoadAll<BedrijfsPersoon>().Where(t => p.ID == t.PersoonID).ToList();
-                    List<Bedrijf> bedrijven = (List<Bedrijf>)DependencyService.Get<IDataService>().LoadAll<Bedrijf>();
+                    List<BedrijfsPersoon> bedrijfsPersonen = DataController.Instance.GetCompanyPersonByPersonID(p.ID);
+                    List<Bedrijf> bedrijven = DataController.Instance.GetCompanys();
                     if (bedrijfsPersonen.Count > 0)
                         company = bedrijven[bedrijfsPersonen[0].BedrijfID].Naam;
                     contacts.Add(new Contact

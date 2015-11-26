@@ -15,7 +15,7 @@ using Xamarin.Forms.Platform.Android;
 using CorflowMobile.Data;
 using CorflowMobile.Models;
 using Android.Util;
-
+using CorflowMobile.Controllers;
 
 [assembly: Dependency(typeof(CorflowMobile.Droid.AndroidSyncService))]
 namespace CorflowMobile.Droid
@@ -85,7 +85,10 @@ namespace CorflowMobile.Droid
         public void StartBackgroundSync(SyncParams p)
         {
             if (SyncActivity == null)
+            {
+                SyncController.Instance.NotifySyncFailed(new Exception("SyncActivity is null."));
                 return;
+            }
             Intent syncIntent = new Intent(SyncActivity, typeof(AndroidBackgroundSyncService));
             syncIntent.PutExtra("url", p.URL);
             syncIntent.PutExtra("dbfile", p.DBFile);

@@ -15,8 +15,8 @@ namespace CorflowMobile.Views
 		public static List<Previous> GetData(Opdracht opdracht)
 		{
 			List<Previous> ListPrevious = new List<Previous> ();
-			List<Opdracht> ListOpdracht = (List<Opdracht>)DependencyService.Get<IDataService>().LoadAll<Opdracht>().Where(t => t.BedrijfID == opdracht.BedrijfID).ToList();
-			List<OpdrachtWerknemer> ListOpdrachtWerknemer = (List<OpdrachtWerknemer>)DependencyService.Get<IDataService>().LoadAll<OpdrachtWerknemer>();
+			List<Opdracht> ListOpdracht = DataController.Instance.GetAssessmentsByCompanyID(opdracht.BedrijfID);
+			List<OpdrachtWerknemer> ListOpdrachtWerknemer = DataController.Instance.GetAssessmentEmployers();
 
 			if (ListOpdracht.Count > 0){
 				foreach (Opdracht opd in ListOpdracht) {

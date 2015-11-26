@@ -33,9 +33,10 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="CorflowMobile.cs" />
+    <Compile Include="Controllers\DataController.cs" />
     <Compile Include="Dependency\IAuthenticator.cs" />
-    <Compile Include="Superclasses\SyncItems.cs" />
     <Compile Include="Models\NullObjects.cs" />
+    <Compile Include="Models\PrestatiesPrestatiesoorten.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Controllers\LoginController.cs" />
     <Compile Include="Data\DataService.cs" />
@@ -66,10 +67,14 @@
     <Compile Include="Views\Helpers\Contacts\Contact.cs" />
     <Compile Include="Views\Helpers\Contacts\ContactCell.cs" />
     <Compile Include="Views\Helpers\Contacts\ContactData.cs" />
+    <Compile Include="Views\Helpers\Performance\Performance.cs" />
+    <Compile Include="Views\Helpers\Performance\PerformanceCell.cs" />
+    <Compile Include="Views\Helpers\Performance\PerformanceData.cs" />
     <Compile Include="Views\Helpers\Previous\Previous.cs" />
     <Compile Include="Views\Helpers\Previous\PreviousCell.cs" />
     <Compile Include="Views\Helpers\Previous\PreviousData.cs" />
     <Compile Include="Views\ListContacts.cs" />
+    <Compile Include="Views\ListPrestaties.cs" />
     <Compile Include="Views\ListPreviousContact.cs" />
     <Compile Include="Views\ListSoldProducts.cs" />
     <Compile Include="Views\SplashPage.cs" />
@@ -110,11 +115,6 @@
     <Compile Include="Views\Helpers\History\historyCell.cs" />
     <Compile Include="Views\Helpers\History\historyData.cs" />
     <Compile Include="Views\ListCalendarPage.cs" />
-    <Compile Include="Models\PrestatiesPrestatiesoorten.cs" />
-    <Compile Include="Views\ListPrestaties.cs" />
-    <Compile Include="Views\Helpers\performance\Performance.cs" />
-    <Compile Include="Views\Helpers\performance\PerformanceCell.cs" />
-    <Compile Include="Views\Helpers\performance\PerformanceData.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
   <Import Project="..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets" Condition="Exists('..\packages\Xamarin.Forms.1.3.3.6323\build\portable-win+net45+wp80+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" />
@@ -189,8 +189,5 @@
     </PropertyGroup>
     <Error Condition="!Exists('..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Xamarin.Forms.1.5.1.6471\build\portable-win+net45+wp80+win81+wpa81+MonoAndroid10+MonoTouch10+Xamarin.iOS10\Xamarin.Forms.targets'))" />
   </Target>
-  <ItemGroup>
-    <Folder Include="Views\Helpers\History\" />
-    <Folder Include="Views\Helpers\performance\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>

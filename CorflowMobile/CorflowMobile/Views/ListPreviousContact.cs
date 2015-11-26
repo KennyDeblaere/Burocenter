@@ -35,7 +35,7 @@ namespace CorflowMobile.Views
 			lstvPreviousContact.ItemSelected += (sender, e) => {
 				if (e.SelectedItem != null){
 					Previous pre = e.SelectedItem as Previous;
-					List<Opdracht> lijstopdracht = (List<Opdracht>)DependencyService.Get<IDataService>().LoadAll<Opdracht>().Where(t => t.ID == pre.OpdrachtID).ToList();
+					List<Opdracht> lijstopdracht = DataController.Instance.GetAssessmentsByID(pre.OpdrachtID);
 					Navigation.PushAsync(new AssessmentDetailPage(lijstopdracht[0]));
 
 				}

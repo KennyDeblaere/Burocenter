@@ -1,4 +1,5 @@
-﻿using CorflowMobile.Data;
+﻿using CorflowMobile.Controllers;
+using CorflowMobile.Data;
 using CorflowMobile.Models;
 using System;
 using System.Collections.Generic;
@@ -16,7 +17,7 @@ namespace CorflowMobile.Views
 			List<ListVerbruiktArtikel> ListVbart = new List<ListVerbruiktArtikel> ();
 
 			if (verbruikArtikels.Count > 0) {
-				List<Artikel> artikelen = (List<Artikel>)DependencyService.Get<IDataService>().LoadAll<Artikel>();
+				List<Artikel> artikelen = DataController.Instance.GetArticles();
 
 				foreach (Verbruiksartikel vbart in verbruikArtikels) {
 
