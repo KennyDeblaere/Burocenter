@@ -459,7 +459,6 @@ D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Deb
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\zxing.portable.dll
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\ZXingNetMobile.dll
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\CorflowMobile.pdb
-D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\CorflowMobile.dll.mdb
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\SQLite-net.dll.mdb
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\Connectivity.Plugin.pdb
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\Droid\bin\Debug\Connectivity.Plugin.xml

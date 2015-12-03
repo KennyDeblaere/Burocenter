@@ -24,8 +24,6 @@ namespace CorflowMobile.Views
 		private ObservableCollection<Persoon> persons;
 		private List<Persoon> keepPersons;
 
-		int selectedIndex = 0;
-
 		public ObservableCollection<Persoon> Persons
 		{
 			get { return persons; }

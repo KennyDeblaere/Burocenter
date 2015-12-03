@@ -31,7 +31,6 @@ D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhon
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\zxing.portable.dll
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\ZXingNetMobile.dll
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\CorflowMobile.pdb
-D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\CorflowMobile.dll.mdb
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.xml
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\Microsoft.IdentityModel.Clients.ActiveDirectory.Platform.xml
 D:\Users\benja\Dropbox\Documents\projects\Burocenter\CorflowMobile\iOS\bin\iPhoneSimulator\Debug\ImageCircle.Forms.Plugin.Abstractions.xml

@@ -79,22 +79,9 @@ namespace CorflowMobile.Views
 			};
         }
 
-        private void dataUpdated(object sender, EventArgs e)
-        {
-            ((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage();
-        }
-
         private void syncCompleted(object sender, SyncParams e)
         {
-            if (DataController.Instance.IsUpdating())
-            {
-                DataController.Instance.OnDataUpdated += dataUpdated;
-                splashLabel.Text = "Laden ...";
-            }
-            else
-            {
-                ((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage();
-            }
+            ((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowLoginPage();
         }
 
         private void syncFailed(object sender, Exception e)
@@ -129,8 +116,6 @@ namespace CorflowMobile.Views
 
 			SyncController.Instance.OnSyncCompleted -= syncCompleted;
 			SyncController.Instance.OnSyncFailed -= syncFailed;
-
-            DataController.Instance.OnDataUpdated -= dataUpdated;
 		}
 	}
 }
