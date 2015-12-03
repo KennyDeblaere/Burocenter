@@ -10,7 +10,6 @@ namespace CorflowMobile.Views
 	public class LoginPage : ContentPage
 	{
 		private RelativeLayout relativeLayout;
-        private Button btnLogin;
 
         public LoginPage ()
 		{
@@ -52,7 +51,7 @@ namespace CorflowMobile.Views
 				TextColor = Color.FromHex("#666")
 			};
 
-            btnLogin = new Button {
+            Button btnLogin = new Button {
 				Text = "Log in",
 				TextColor = Device.OnPlatform (Color.Black, Color.White, Color.White),
 				FontFamily = Device.OnPlatform("HelveticaNeue","sans-serif",null),
@@ -155,26 +154,6 @@ namespace CorflowMobile.Views
 			((CorflowMobile.App)Xamarin.Forms.Application.Current).ShowRootPage ();
         }
 
-        private void SyncCompleted(object sender, SyncParams e)
-        {
-            DependencyService.Get<IToastNotificator>().Notify(
-                ToastNotificationType.Success,
-                "Synchronisatie gelukt",
-                "Er werd succesvol gesynchroniseerd.",
-                TimeSpan.FromSeconds(3));
-
-            btnLogin.IsEnabled = true;
-        }
-
-        private void SyncFailed(object sender, Exception e)
-        {
-            DependencyService.Get<IToastNotificator>().Notify(
-                ToastNotificationType.Error,
-                "Synchronisatie mislukt",
-                "Lokale data kon niet worden gesynchroniseerd. Er kan niet worden ingelogd vooralleer er gesynchroniseerd is. Probeer te veranderen van internetverbinding en de applicatie af te sluiten en opnieuw op te starten.",
-                TimeSpan.FromSeconds(12));
-        }
-
         protected override void OnAppearing()
 		{
 			Content = relativeLayout;
@@ -184,8 +163,11 @@ namespace CorflowMobile.Views
 
             if (SyncController.Instance.HasNeverBeenSynced())
             {
-                SyncController.Instance.OnSyncCompleted += SyncCompleted;
-                SyncController.Instance.OnSyncFailed += SyncFailed;
+                DependencyService.Get<IToastNotificator>().Notify(
+                    ToastNotificationType.Error,
+                    "Synchronisatie mislukt",
+                    "Lokale data kon niet worden gesynchroniseerd. Er kan niet worden ingelogd vooralleer er gesynchroniseerd is. Probeer te veranderen van internetverbinding en de applicatie af te sluiten en opnieuw op te starten.",
+                    TimeSpan.FromSeconds(12));
             }
         }
 
@@ -195,9 +177,6 @@ namespace CorflowMobile.Views
 			base.OnDisappearing();
 
 			LoginController.Instance.OnLoggedInSuccess -= onLoggedIn;
-
-            SyncController.Instance.OnSyncCompleted -= SyncCompleted;
-            SyncController.Instance.OnSyncFailed -= SyncFailed;
         }
 	}
 }

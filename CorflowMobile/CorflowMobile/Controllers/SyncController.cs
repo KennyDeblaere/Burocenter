@@ -131,11 +131,14 @@ namespace CorflowMobile.Controllers
 
 		private void notifyUserOffline ()
 		{
-			DependencyService.Get<IToastNotificator>().Notify(
-				ToastNotificationType.Info, 
-				"Verbinding verbroken",
-				"U werkt momenteel offline. Er zal automatisch opnieuw gesynchroniseerd worden wanneer de verbinding hersteld wordt.",
-				TimeSpan.FromSeconds(12));
+            if (!HasNeverBeenSynced())
+            {
+                DependencyService.Get<IToastNotificator>().Notify(
+                    ToastNotificationType.Info,
+                    "Verbinding verbroken",
+                    "U werkt momenteel offline. Er zal automatisch opnieuw gesynchroniseerd worden wanneer de verbinding hersteld wordt.",
+                    TimeSpan.FromSeconds(12));
+            }
 		}
 
 		private void notifyUserOnline ()
