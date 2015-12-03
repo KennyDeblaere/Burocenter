@@ -9,12 +9,10 @@ namespace CorflowMobile.Views
     /// </summary>
     public partial class CalendarPage : ContentPage
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="CalendarPage"/> class.
-        /// </summary>
+		CalendarView caldendarView;
         public CalendarPage()
         {
-            CalendarView calendarView = new CalendarView()
+			caldendarView = new CalendarView()
             {
                 //BackgroundColor = Color.Blue,
                 MinDate = CalendarView.FirstDayOfMonth(DateTime.Now.AddYears(-1)),
@@ -28,12 +26,23 @@ namespace CorflowMobile.Views
                 MonthTitleFont = Font.OfSize("Open 24 Display St", NamedSize.Medium),
             };
 
-            calendarView.DateSelected += (object sender, DateTime e) =>
+			caldendarView.DateSelected += (object sender, DateTime e) =>
             {
 				Navigation.PushAsync(new ListCalendarPage(e));
             };
 
-            Content = calendarView;
         }
+
+		protected override void OnAppearing()
+		{
+			Content = caldendarView;
+			base.OnAppearing();
+		}
+
+		protected override void OnDisappearing()
+		{
+			Content = null;
+			base.OnDisappearing();
+		}
     }
 }

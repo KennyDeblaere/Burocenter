@@ -5,7 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>Corflow Mobile</string>
 	<key>CFBundleIdentifier</key>
-	<string>be.burocenter.corflowmobile</string>
+	<string>be.howest.ti.student.9RZW73LTB7</string>
 	<key>CFBundleShortVersionString</key>
 	<string>1.0</string>
 	<key>CFBundleVersion</key>
@@ -61,5 +61,9 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>LaunchScreen</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Can we use your location</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>We are using your location</string>
 </dict>
 </plist>

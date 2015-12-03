@@ -12,6 +12,7 @@ using Foundation;
 using XLabs.Forms.Controls;
 using XLabs.Forms;
 using CorflowMobile.Controllers;
+using Toasts.Forms.Plugin.iOS;
 
 [assembly: Dependency(typeof(CorflowMobile.iOS.SHA1Service))]
 [assembly: Dependency(typeof(CorflowMobile.Data.BaseSyncService))]
@@ -50,6 +51,8 @@ namespace CorflowMobile.iOS
 			var path = Path.Combine(libraryPath, sqliteFilename);
 
 			SyncController.DatabasePath = path;
+			Xamarin.FormsMaps.Init();
+			ToastNotificatorImplementation.Init();
 
 			LoadApplication(new CorflowMobile.App());
 

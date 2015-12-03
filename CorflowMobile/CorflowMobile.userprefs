@@ -1,16 +1,22 @@
-﻿<Properties StartupItem="Droid/CorflowMobile.Droid.csproj" RefactoringSettings.EnableRefactorings="True">
-  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_23_x86" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="CorflowMobile\Data\DataService.cs">
+﻿<Properties StartupItem="iOS/CorflowMobile.iOS.csproj" RefactoringSettings.EnableRefactorings="True">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Android.Nexus_5_API_22_x86" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="iOS/Main.cs">
     <Files>
-      <File FileName="CorflowMobile\Controllers\DataController.cs" Line="17" Column="29" />
-      <File FileName="CorflowMobile\Data\DataService.cs" Line="141" Column="30" />
+      <File FileName="iOS/Info.plist" />
+      <File FileName="CorflowMobile/Views/Helpers/Cards/IconLabelView.cs" Line="126" Column="1" />
+      <File FileName="../../Documents/project/Burocenter/CorflowMobile/CorflowMobile/Views/Helpers/Cards/IconLabelView.cs" Line="49" Column="18" />
+      <File FileName="../../Documents/project/Burocenter/CorflowMobile/CorflowMobile/Controllers/DataController.cs" Line="1" Column="1" />
+      <File FileName="CorflowMobile/Views/AppointmentDetailPage.cs" Line="313" Column="1" />
+      <File FileName="CorflowMobile/Views/RootPage.cs" Line="37" Column="1" />
+      <File FileName="CorflowMobile/Views/CalendarPage.cs" Line="44" Column="1" />
+      <File FileName="CorflowMobile/Views/ListCalendarPage.cs" Line="53" Column="1" />
+      <File FileName="iOS/Main.cs" Line="17" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore>
       <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\Howest\Projecten\Buro Center\Application\Burocenter\CorflowMobile\CorflowMobile\Data\SyncService.cs" line="55" column="1" />
       <Breakpoint file="D:\Users\Benjamin\Dropbox\Documents\projects\Burocenter\CorflowMobile\CorflowMobile\Controllers\SyncController.cs" line="88" column="1" />
-      <Breakpoint file="/Users/alexandervandesteene/Burocenter/CorflowMobile/CorflowMobile/Views/AppointmentDetailPage.cs" line="313" column="101" />
     </BreakpointStore>
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
