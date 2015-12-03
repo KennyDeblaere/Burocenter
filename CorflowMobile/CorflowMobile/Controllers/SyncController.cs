@@ -139,15 +139,24 @@ namespace CorflowMobile.Controllers
                     "U werkt momenteel offline. Er zal automatisch opnieuw gesynchroniseerd worden wanneer de verbinding hersteld wordt.",
                     TimeSpan.FromSeconds(12));
             }
-		}
+        }
 
-		private void notifyUserOnline ()
-		{
-			DependencyService.Get<IToastNotificator>().Notify(
-				ToastNotificationType.Info, 
-				"Verbinding hersteld",
-				"Uw wijzigingen werden gesynchroniseerd en u werkt terug met de laatste versie van de data.",
-				TimeSpan.FromSeconds(12));
-		}
-	}
+        private void notifyUserOnline()
+        {
+            DependencyService.Get<IToastNotificator>().Notify(
+                ToastNotificationType.Info,
+                "Verbinding hersteld",
+                "Uw wijzigingen werden gesynchroniseerd en u werkt terug met de laatste versie van de data.",
+                TimeSpan.FromSeconds(12));
+        }
+
+        public void NotifySyncNeeded()
+        {
+            DependencyService.Get<IToastNotificator>().Notify(
+                ToastNotificationType.Error,
+                "Synchronisatie mislukt",
+                "Lokale data kon niet worden gesynchroniseerd. Er kan niet worden ingelogd vooralleer er gesynchroniseerd is. Probeer te veranderen van internetverbinding en de applicatie af te sluiten en opnieuw op te starten.",
+                TimeSpan.FromSeconds(12));
+        }
+    }
 }

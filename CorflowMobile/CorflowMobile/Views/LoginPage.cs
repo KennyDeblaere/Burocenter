@@ -163,11 +163,7 @@ namespace CorflowMobile.Views
 
             if (SyncController.Instance.HasNeverBeenSynced())
             {
-                DependencyService.Get<IToastNotificator>().Notify(
-                    ToastNotificationType.Error,
-                    "Synchronisatie mislukt",
-                    "Lokale data kon niet worden gesynchroniseerd. Er kan niet worden ingelogd vooralleer er gesynchroniseerd is. Probeer te veranderen van internetverbinding en de applicatie af te sluiten en opnieuw op te starten.",
-                    TimeSpan.FromSeconds(12));
+                SyncController.Instance.NotifySyncNeeded();
             }
         }
 
