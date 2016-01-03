@@ -1,7 +1,7 @@
 # Burocenter
 Repository for the Corflow Mobile Application
 # Documentation
-  Dropbox folder: goo.gl/n4bpI1
+  [Dropbox folder](http://goo.gl/n4bpI1)
 
 # Collaborators
   Kenny Deblaere
